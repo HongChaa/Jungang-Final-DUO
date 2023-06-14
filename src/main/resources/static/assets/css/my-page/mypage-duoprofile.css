@@ -1,13 +1,8 @@
-@import "../common/common.css";
-@import "../common/footer.css";
-@import "../common/header.css";
-
 body::-webkit-scrollbar {
     display: none;
 }
 
-#main-wrapper {
-    /*border: 1px solid #fff;*/
+#my-page-wrapper {
     display: flex;
 }
 

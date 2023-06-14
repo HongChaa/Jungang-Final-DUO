@@ -1,5 +1,5 @@
 package site.woulduduo.enumeration;
 
 public enum Position {
-    TOP, JUG, MID, AD, SUP
+    ALL, TOP, JUG, MID, AD, SUP
 }
