@@ -1,6 +1,7 @@
 @import "common.css";
-@import "../main.css";
 @import "footer.css";
+@import "../chatting/chattingModal.css";
+@import "../chatting/chattingMessageModal.css";
 
 /* header style */
 header {
@@ -115,7 +116,7 @@ header {
 
 /* user modal common */
 .user-modal {
-    position: absolute;
+    /*position: absolute;*/
     top: 100%;
     padding: 30px;
     margin-top: 30px;
@@ -146,22 +147,33 @@ header {
     content: "";
 }
 
-/* sign in modal */
+#sign-in-dialog {
+    background: none;
+    left: 1056px;
+    top: -398px;
+}
 
+#sign-in-dialog::backdrop {
+    background: none;
+}
+
+/* sign in modal */
 #sign-in-modal {
-    right: -65px;
+    /*right: -65px;*/
 
     height: 300px;
-    z-index: 4;
 
-    /* 로그인 모달 안보이게 하고 싶을때 */
-    display: none;
+    display: flex;
+    flex-flow: column;
+    justify-content: space-between;
+
+    color: #000;
 }
 
 /* triangle over modal */
 #sign-in-modal:before {
     /* 로그인 버튼 바로 아래에 위치하도록 */
-    top: -27px;
+    top: 4px;
     right: 64px;
 }
 
@@ -186,8 +198,7 @@ header {
     background: #fff;
 }
 
-#sign-in-modal .input-wrapper label
-, #sign-in-modal .input-wrapper input {
+#sign-in-modal .input-wrapper label, #sign-in-modal .input-wrapper input {
     display: block;
 }
 

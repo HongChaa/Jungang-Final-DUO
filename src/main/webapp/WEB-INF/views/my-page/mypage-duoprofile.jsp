@@ -14,6 +14,7 @@
     <!-- <link rel="stylesheet" href="/assets/css/common.css"> -->
     <%@ include file="../common/static-head.jsp" %>
     <link rel="stylesheet" href="/assets/css/my-page/mypage-duoprofile.css">
+    <script src="/assets/js/my-page/mypage-duoprofile.js" defer></script>
     <!--    <link rel="icon" href="/assets/img/main/simple-favicon-navy.png">-->
 </head>
 
@@ -61,8 +62,8 @@
                             <label><textarea id="comment" name="userComment" placeholder="자유롭게 자기소개를 입력해주세요"
                                     autofocus></textarea></label>
                             <div id="submit-box">
-                                <p id="matching-point-title">매칭포인트</p><label id="matching-point-label"><input
-                                        id="matching-point" name="userMatchingPoint"><span>POINT</span></label>
+                                <p id="matching-point-title">매칭포인트</p><label id="matching-point-label">
+                                    <input id="matching-point" name="userMatchingPoint"><span>POINT</span></label>
                                 <div id="register-duo">듀오 등록</div>
                             </div>
                         </form>
@@ -70,26 +71,8 @@
                 </div>
             </div>
         </div>
+        <%@ include file="../common/footer.jsp" %>
     </div>
-
-    <script>
-        const $registerBtn = document.getElementById("register-duo");
-
-        $registerBtn.onclick = e => {
-            // const $positionOption = document.querySelectorAll(".select-position");
-            // console.log("진입성공" + $positionOption.length);
-            // let selectedPosition = '';
-            // for (let i = 0; i < $positionOption.length; i++) {
-            //     if ($positionOption[i].checked) {
-            //         selectedPosition = $positionOption[i].value;
-            //     }
-            // }
-            // console.log(selectedPosition);
-                const form = document.getElementById("position-comment-form");
-                form.submit();
-        }
-    </script>
-
 </body>
 
 </html>

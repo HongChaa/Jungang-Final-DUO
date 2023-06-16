@@ -6,11 +6,14 @@ import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.annotation.Rollback;
-import org.springframework.transaction.annotation.Transactional;
 import site.woulduduo.dto.request.user.UserCommentRequestDTO;
+import site.woulduduo.dto.request.user.UserRegisterRequestDTO;
+import site.woulduduo.enumeration.Gender;
 import site.woulduduo.enumeration.Position;
+import site.woulduduo.repository.UserRepository;
 
-import javax.servlet.http.HttpSession;
+import javax.transaction.Transactional;
+import java.time.LocalDate;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -20,11 +23,92 @@ import static org.junit.jupiter.api.Assertions.*;
 class UserServiceTest {
 
     @Autowired
-    UserService userService;
+    private UserService userService;
+
+    @Autowired
+    private UserRepository userRepository;
 
     @BeforeEach
     void userInsert() {
 
+    }
+
+    @Test
+    @DisplayName("유요한 사용자 정보로 회원 가입 테스트")
+    void testRegisterWithValidUserInfo() {
+        // Given
+        UserRegisterRequestDTO dto = UserRegisterRequestDTO.builder()
+                .userEmail("test@example.com")
+                .userPassword("abC123@")
+                .userNickname("가나다")
+                .userBirthday(LocalDate.of(2000, 1, 1))
+                .lolNickname("코뚱잉")
+                .userGender(Gender.M)
+                .build();
+
+        // When
+        userService.register(dto);
+
+        // Then
+        assertEquals(1, userRepository.count());
+    }
+
+    @Test
+    @DisplayName("이미 등록된 이메일로 회원 가입 시도")
+    void testRegisterWithDuplicateEmail() {
+        // Given
+        UserRegisterRequestDTO dto1 = UserRegisterRequestDTO.builder()
+                .userEmail("test@example.com")
+                .userPassword("password123")
+                .userNickname("nickname1")
+                .userBirthday(LocalDate.of(2000, 1, 1))
+                .lolNickname("lolnickname1")
+                .userGender(Gender.M)
+                .build();
+
+        UserRegisterRequestDTO dto2 = UserRegisterRequestDTO.builder()
+                .userEmail("test@example.com")
+                .userPassword("password456")
+                .userNickname("nickname2")
+                .userBirthday(LocalDate.of(2000, 2, 2))
+                .lolNickname("lolnickname2")
+                .userGender(Gender.F)
+                .build();
+
+        // When
+        userService.register(dto1);
+
+        // Then
+        assertThrows(IllegalArgumentException.class, () -> userService.register(dto2));
+    }
+
+    @Test
+    @DisplayName("이미 등록된 닉네임으로 회원 가입 시도")
+    void testRegisterWithDuplicateNickname() {
+        // Given
+        UserRegisterRequestDTO dto1 = UserRegisterRequestDTO.builder()
+                .userEmail("test1@example.com")
+                .userPassword("password123")
+                .userNickname("nickname")
+                .userBirthday(LocalDate.of(2000, 1, 1))
+                .lolNickname("lolnickname1")
+                .userGender(Gender.M)
+                .build();
+
+        UserRegisterRequestDTO dto2 = UserRegisterRequestDTO.builder()
+                .userEmail("test2@example.com")
+                .userPassword("password456")
+                .userNickname("nickname")
+                .userBirthday(LocalDate.of(2000, 2, 2))
+                .lolNickname("lolnickname2")
+                .userGender(Gender.F)
+                .build();
+
+        // When
+        userService.register(dto1);
+
+        // Then
+        assertThrows(IllegalArgumentException.class, () -> userService.register(dto2));
     }
 
     @Test

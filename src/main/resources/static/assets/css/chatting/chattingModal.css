@@ -1,0 +1,111 @@
+@import "../common/common.css";
+
+/* 채팅방 모달 띄우는 css */
+
+/* 모달 뒷배경 블러처리 */
+
+
+/* 모달 뒷배경 css */
+/*.modal-background {*/
+/*    width: 100vh;*/
+/*    height: 100vh;*/
+/*    background: #000;*/
+/*    opacity: 50%;*/
+/*    z-index: 100;*/
+/*    position: absolute;*/
+/*    display: none;*/
+/*}*/
+/*.modal-background.show-modal {*/
+/*    display: block;*/
+/*}*/
+
+/* 채팅목록 모달 css */
+.chatting-modal-wrapper {
+    width: 400px;
+    height: 550px;
+    /*display: none;*/
+    position: fixed;
+    bottom: 50px;
+    right: 360px;
+    background: #fff;
+    /* border: 2px solid #ff0c0c; */
+    border-radius: 25px;
+    /*transform: translate(300%, 70%);*/
+    z-index: 500;
+
+    padding: 20px 15px 15px 0px;
+}
+/*.chatting-modal-wrapper.show-chatting-modal {*/
+/*    display: block;*/
+/*}*/
+
+.chatting-modal-wrapper::backdrop {
+    background: none;
+}
+
+.chatting-card {
+    width: 90%;
+    /* border: 1px solid #00ff88; */
+    border-radius: 5px;
+    background: #111E30;
+    color: #fff;
+    margin: 0px auto 5px;
+    padding: 10px;
+}
+
+.chatting-modal-container {
+    height: 505px;
+
+    overflow-y: scroll;
+}
+
+.chatting-modal-container::-webkit-scrollbar {
+    width: 8px;
+}
+.chatting-modal-container::-webkit-scrollbar-thumb {
+    border-radius: 20px;
+    background: rgb(202, 200, 200);
+}
+
+.chatting-card-inner {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+
+/* 채팅카드의 자식태그 inline */
+.chatting-card-inner img {
+    width: 60px;
+
+    border: 1px solid #fff;
+    border-radius: 5px;
+    display: inline-block;
+    margin-right: 20px;
+}
+.chatting-card-inner div {
+    display: inline-block;
+}
+
+.chatting-card-inner .chatting-info {
+    margin-right: 15px;
+}
+.chatting-card-inner .chatting-nickname {
+    display: block;
+    font-weight: 700;
+    margin-bottom: 15px;
+}
+.chatting-card-inner .chatting-current-message {
+    font-size: 1px;
+    opacity: 70%;
+}
+.chatting-card-inner .chatting-unread {
+    background: red;
+    border-radius: 5px;
+    width: 30px;
+    height: 23px;
+    text-align: center;
+
+    margin-top: 30px;
+    padding-top: 3px;
+}

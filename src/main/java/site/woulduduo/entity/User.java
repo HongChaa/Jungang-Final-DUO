@@ -45,7 +45,7 @@ public class User {
     @Check(constraints = "TIMESTAMPDIFF(YEAR, user_birthday, CURDATE()) > 18")
     private LocalDate userBirthday;
 
-    @Column(name = "lol_ninkname", length = 20, nullable = false, unique = true)
+    @Column(name = "lol_nickname", length = 20, nullable = false, unique = true)
     private String lolNickname;
 
     @Column(name = "user_gender", nullable = false)
