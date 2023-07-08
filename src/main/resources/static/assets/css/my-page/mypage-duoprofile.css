@@ -186,15 +186,19 @@ body::-webkit-scrollbar {
     align-items: center;
 }
 #register-duo {
-    width: fit-content;
     position: absolute;
+}
+
+.duo-btn {
+    width: fit-content;
+    margin-left: 15px;
     right: 5px;
     border: 1px solid #fff;
     padding: 5px 15px;
     border-radius: 5px;
 }
 
-#register-duo:hover {
+.duo-btn:hover {
     cursor: pointer;
     background: rgba(255, 255, 255, 0.25);
 }

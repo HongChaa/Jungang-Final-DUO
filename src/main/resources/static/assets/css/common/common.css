@@ -39,6 +39,11 @@ button {
     opacity: 0.8;
 }
 
+dialog {
+    padding: 0;
+    border: none;
+}
+
 /* dialog backdrop */
 dialog {
     padding: 0;
@@ -47,4 +52,9 @@ dialog {
 
 dialog::backdrop {
     background: rgba(0, 0, 0, .5);
+}
+
+/* 드롭다운 버튼 및 콘텐츠 */
+.invisible {
+    display: none;
 }

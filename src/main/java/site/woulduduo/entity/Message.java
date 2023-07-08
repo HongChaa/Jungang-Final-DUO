@@ -16,7 +16,7 @@ import java.time.LocalDateTime;
 @Builder
 @Entity
 @Table(name = "duo_message")
-public class Message {
+public class Message implements Comparable<Message> {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -31,7 +31,7 @@ public class Message {
     private String messageContent;
 
     @CreationTimestamp
-    @Column(updatable = false, name = "mesage_time")
+    @Column(updatable = false, name = "message_time")
     private LocalDateTime messageTime;
 
     @Builder.Default
@@ -42,4 +42,10 @@ public class Message {
     @JoinColumn(name = "chatting_no")
     private Chatting chatting;
 
+    @Override
+    public int compareTo(Message message) {
+        if(this.messageTime.isAfter(message.messageTime)) return -1;
+        else if (this.messageTime.equals(message.messageTime)) return 0;
+        return 1;
+    }
 }

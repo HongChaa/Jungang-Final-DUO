@@ -16,7 +16,7 @@ import static org.junit.jupiter.api.Assertions.assertThrows;
 class RiotApiServiceTest {
 
     @Autowired
-    RiotApiService riotApiService;
+    private RiotApiService riotApiService;
 
     @Test
     @DisplayName("stargazer 소환사 이름을 넣으면 결과가 _l3OJ8Lnjiea6zwUQ4pbr6F2zYLt1W-qHbKKd62MtA0y0A 가 나와야 한다.")
@@ -68,7 +68,7 @@ class RiotApiServiceTest {
     @Test
     @DisplayName("stargazer의 모스트 3개 챔피언을 구한다.")
     void getMost3ChampionsTest() {
-        List<String> most3Champions = riotApiService.getMost3Champions("stargazer");
+        List<String> most3Champions = riotApiService.getMost3Champions("코뚱잉");
 
         most3Champions.forEach(System.out::println);
     }

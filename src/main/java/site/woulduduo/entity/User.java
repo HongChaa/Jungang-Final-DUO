@@ -3,26 +3,21 @@ package site.woulduduo.entity;
 import lombok.*;
 import org.hibernate.annotations.Check;
 import org.hibernate.annotations.CreationTimestamp;
-import site.woulduduo.enumeration.Gender;
-import site.woulduduo.enumeration.LoginType;
-import site.woulduduo.enumeration.Position;
-import site.woulduduo.enumeration.Tier;
+import site.woulduduo.enumeration.*;
 
 import javax.persistence.*;
-import javax.persistence.CascadeType;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
-
-import static site.woulduduo.enumeration.LoginType.NORMAL;
-
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.List;
 
 import static site.woulduduo.enumeration.LoginType.NORMAL;
 
 @Setter
 @Getter
-@ToString(exclude = {"replyList", "userProfileList", "attendanceList", "accuseList", "followToList", "followFromList", "pointList", "boardList"})
+@ToString(exclude = {"replyList", "userProfileList", "attendanceList", "accuseList", "followToList", "followFromList",
+        "pointList", "boardList", "chattingToList", "chattingFromList", "attendanceStampList"})
 @NoArgsConstructor
 @AllArgsConstructor
 @EqualsAndHashCode(of = "userAccount")
@@ -76,7 +71,7 @@ public class User {
     private Tier lolTier;
 
     @Builder.Default
-    private Integer userCurrentPoint = 0;
+    private Integer userCurrentPoint = 1000;
 
     @Column(length = 30, unique = true)
     private String userTwitter;
@@ -91,6 +86,7 @@ public class User {
     @Column(columnDefinition = "DOUBLE(2, 1)")
     private Double userAvgRate = 0.0;
 
+    @Column(name = "user_cookie_limit_time")
     private LocalDateTime userCookieLimitTime;
 
     @Column(length = 200)
@@ -141,10 +137,29 @@ public class User {
     @Builder.Default
     private List<Attendance> attendanceList = new ArrayList<>();
 
-    // 출석도장 내
+    // 출석도장 내역
     @OneToMany(mappedBy = "user", fetch = FetchType.LAZY)
     @Builder.Default
     private List<AttendanceStamp> attendanceStampList = new ArrayList<>();
+
+    // 내가 건 채팅 내역
+    @OneToMany(mappedBy = "chattingFrom", fetch = FetchType.LAZY)
+    @Builder.Default
+    private List<Chatting> chattingToList = new ArrayList<>();
+
+    // 내가 받은 채팅 내역
+    @OneToMany(mappedBy = "chattingTo", fetch = FetchType.LAZY)
+    @Builder.Default
+    private List<Chatting> chattingFromList = new ArrayList<>();
+
+    // 내 모스트 챔피언들
+    @OneToMany(mappedBy = "user", fetch = FetchType.LAZY)
+    @Builder.Default
+    private List<MostChamp> mostChampList = new ArrayList<>();
+
+    @Enumerated(EnumType.STRING)
+    @Builder.Default
+    private Role role = Role.COMMON;
 
     // 양방향 매핑에서 리스트쪽에 데이터를 추가하는 편의메서드 생성
     public void addReply(Reply reply) {
@@ -207,6 +222,35 @@ public class User {
         attendanceStampList.add(attendanceStamp);
         if (this != attendanceStamp.getUser()) {
             attendanceStamp.setUser(this);
+        }
+    }
+
+    public void addChattingToList(Chatting chatting) {
+        chattingToList.add(chatting);
+        if (this != chatting.getChattingFrom()) {
+            chatting.setChattingFrom(this);
+        }
+    }
+
+    public void addChattingFromList(Chatting chatting) {
+        chattingFromList.add(chatting);
+        if (this != chatting.getChattingTo()) {
+            chatting.setChattingTo(this);
+        }
+    }
+
+    public String getLatestProfileImage() {
+        return this.userProfileList.stream()
+                .sorted(Comparator.comparing(UserProfile::getProfileImage).reversed())
+                .map(UserProfile::getProfileImage)
+                .findFirst()
+                .orElse(null);
+    }
+
+    public void addMostChampList(MostChamp mostChamp) {
+        mostChampList.add(mostChamp);
+        if (this != mostChamp.getUser()) {
+            mostChamp.setUser(this);
         }
     }
 }

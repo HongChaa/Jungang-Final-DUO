@@ -21,7 +21,7 @@ public class UserProfile {
     @Column(name = "profile_no")
     private Long profileNo;
 
-    @Column(length = 1000, nullable = false, name = "profile_image")
+    @Column(length = 1000, nullable = true, name = "profile_image")
     private String profileImage;
 
     @ManyToOne(fetch = FetchType.LAZY)

@@ -1,0 +1,36 @@
+body::-webkit-scrollbar {
+    display: none;
+}
+
+#main-wrapper {
+    /*border: 1px solid #fff;*/
+    display: flex;
+}
+
+/* 좌측 메뉴 영역 */
+#my-page-sidebar {
+    color: white;
+    height: 600px;
+    width: 20%;
+    font-size: 18px;
+    line-height: 2.2em;
+    /* border-right: 1px solid #FFFFFF; */
+    /*border: 1px solid #fff;*/
+}
+
+#my-page-menu-list {
+    margin-top: 30px;
+}
+
+/* 각 페이지에서는 해당 페이지 메뉴에 fw700 default 먹이기 */
+.my-page-menu:hover {
+    font-weight: 700;
+    cursor: pointer;
+}
+
+/* 우측 콘텐츠 영역 */
+#my-page-content {
+    color: white;
+    width: 80%;
+    border-left: 1px solid #fff;
+}

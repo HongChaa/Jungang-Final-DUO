@@ -3,8 +3,11 @@ package site.woulduduo.entity;
 import lombok.*;
 
 import javax.persistence.*;
+import java.time.LocalDateTime;
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Setter
 @Getter
@@ -15,7 +18,7 @@ import java.util.List;
 @Builder
 @Entity
 @Table(name = "duo_chatting")
-public class Chatting {
+public class Chatting implements Comparable<Chatting> {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -32,6 +35,7 @@ public class Chatting {
 
     @Builder.Default
     @OneToMany(mappedBy = "chatting", fetch = FetchType.LAZY)
+    @OrderBy("matchingNo desc")
     private List<Matching> matchingList = new ArrayList<>();
 
     @Builder.Default
@@ -62,5 +66,16 @@ public class Chatting {
         if (this != point.getChatting()) {
             point.setChatting(this);
         }
+    }
+
+    @Override
+    public int compareTo(Chatting chatting) {
+        if (getMessageListInOrder(this.messageList).isAfter(getMessageListInOrder(chatting.messageList))) return -1;
+        else if (getMessageListInOrder(this.messageList).equals(getMessageListInOrder(chatting.messageList))) return 0;
+        return 1;
+    }
+
+    private LocalDateTime getMessageListInOrder(List<Message> messages) {
+        return messages.stream().sorted(Comparator.comparing(Message::getMessageTime).reversed()).collect(Collectors.toList()).get(0).getMessageTime();
     }
 }

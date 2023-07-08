@@ -25,21 +25,21 @@
     height: 550px;
     /*display: none;*/
     position: fixed;
-    bottom: 50px;
-    right: 360px;
+    bottom: 5%;
+    right: 18%;
     background: #fff;
     /* border: 2px solid #ff0c0c; */
     border-radius: 25px;
     /*transform: translate(300%, 70%);*/
     z-index: 500;
 
-    padding: 20px 15px 15px 0px;
+    padding: 20px 15px 15px 0;
 }
 /*.chatting-modal-wrapper.show-chatting-modal {*/
 /*    display: block;*/
 /*}*/
 
-.chatting-modal-wrapper::backdrop {
+.chatting-modal-dialog::backdrop {
     background: none;
 }
 
@@ -49,7 +49,7 @@
     border-radius: 5px;
     background: #111E30;
     color: #fff;
-    margin: 0px auto 5px;
+    margin: 5px auto;
     padding: 10px;
 }
 
@@ -69,19 +69,20 @@
 
 .chatting-card-inner {
     display: flex;
-    justify-content: center;
+    justify-content: start;
     align-items: center;
     cursor: pointer;
 }
 
 /* 채팅카드의 자식태그 inline */
 .chatting-card-inner img {
-    width: 60px;
-
+    width: 50px;
+    height: 60px;
     border: 1px solid #fff;
     border-radius: 5px;
     display: inline-block;
     margin-right: 20px;
+    background-color: #fff;
 }
 .chatting-card-inner div {
     display: inline-block;
@@ -89,6 +90,7 @@
 
 .chatting-card-inner .chatting-info {
     margin-right: 15px;
+    width: 197px;
 }
 .chatting-card-inner .chatting-nickname {
     display: block;
@@ -102,10 +104,29 @@
 .chatting-card-inner .chatting-unread {
     background: red;
     border-radius: 5px;
-    width: 30px;
-    height: 23px;
+    width: fit-content;
+    /*height: 23px;*/
     text-align: center;
 
     margin-top: 30px;
-    padding-top: 3px;
+    padding: 3px;
+    min-width: 20px;
+}
+
+#empty-chatting-list {
+    width: 300px;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    background: rgba(255, 255, 255, 0.2) url("../../img/chattingModal/logoBackground.png") no-repeat center 170px;
+    background-size: 300px;
+    margin-left: 50px;
+}
+
+#empty-chatting-list p {
+    font-size: 18px;
+    line-height: 2em;
+    text-align: center;
+    margin-top: 100px;
+
 }

@@ -1,50 +1,20 @@
-/*@import "../common/common.css";*/
-
-/* 채팅방 모달 띄우는 css */
-
-/* 모달 뒷배경 블러처리 */
-
-
-
-/* 모달 뒷배경 css */
-/*.modal-background {*/
-/*    width: 100%;*/
-/*    height: 100%;*/
-/*    display: none;*/
-/*    background: #000;*/
-/*    opacity: 50%;*/
-/*    z-index: 100;*/
-/*    position: absolute;*/
-/*}*/
-
-/*.modal-background.show-modal {*/
-/*    display: block;*/
-/*}*/
-
 /* 채팅목록 모달 css */
 .chatting-message-modal-wrapper {
     width: 400px;
     height: 550px;
-    /*display: none;*/
     position: fixed;
-    bottom: 50px;
-    right: 360px;
-    background: #fff;
-    /* border: 2px solid #ff0c0c; */
+    bottom: 5%;
+    right: 18%;
+    background: #E3E3E3;
     border-radius: 25px;
-    /*transform: translate(300%, 70%);*/
     z-index: 500;
 
     padding: 20px 15px 15px 0;
 }
 
-.chatting-message-modal-wrapper::backdrop {
+.message-dialog::backdrop {
     background: none;
 }
-
-/*.chatting-message-modal-wrapper.show-chatting-message-modal {*/
-/*    display: block;*/
-/*}*/
 
 /* 채팅방헤더 상대닉네임 부분 */
 .chatting-message-head {
@@ -111,12 +81,13 @@
 
 }
 .chatting-handshake-img {
-    width: 25px;
+    width: 20px;
     margin-right: 10px;
 }
 
 
 .gameover-container {
+    display: inline-block;
     cursor: pointer;
 
     display: flex;
@@ -154,6 +125,7 @@
     border-radius: 10px;
     margin: 15px 5px;
     align-self: start;
+    background-color: #fff;
 }
 .message-nickname {
     font-size: 11px;
@@ -171,7 +143,6 @@
     margin-right: 10px;
 }
 .message-content {
-    color: black;
     max-width: 200px;
     display: inline-block;
     padding: 10px;
@@ -189,6 +160,7 @@
 }
 
 .message-from {
+    width: 100%;
     display: flex;
     flex-flow: row-reverse;
 }
@@ -203,7 +175,8 @@
     height: 30px;
 
     border-radius: 5px;
-    margin: 10px 10px 0 20px;
+    margin: 5px 10px 0px 20px;
+    margin-top: 10px;
     outline: none;
 }
 

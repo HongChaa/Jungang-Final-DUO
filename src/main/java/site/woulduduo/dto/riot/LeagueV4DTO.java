@@ -50,4 +50,8 @@ public class LeagueV4DTO {
                 return Tier.UNR;
         }
     }
+
+    public double getWinRate() {
+        return (double) wins / (wins + losses);
+    }
 }

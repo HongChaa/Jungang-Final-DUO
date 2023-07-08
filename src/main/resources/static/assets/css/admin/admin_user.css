@@ -1,0 +1,343 @@
+
+#main-wrapper{
+    /* border: 1px solid #ffffff; */
+    height: 600px;
+    display: flex;
+    margin-top: 30px;
+    /* border: 1px solid #000; */
+
+}
+
+#main-wrapper .side_container{
+    height: 600px;
+    width: 5%;
+
+}
+
+#main-wrapper .side_container .direction_img{
+    width: 100%;
+    height: 10%;
+    margin-top: 280px;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+
+}
+
+#main-wrapper .side_container .direction_img img{ 
+    width: 100%;
+    height: 100%;
+}
+
+
+/* 중앙 */
+
+#main-wrapper .center_container{
+    /* border: 1px solid #8fd808; */
+    height: 600px;
+    width: 90%;
+
+}
+
+#main-wrapper .center_container #admin_page{
+    /* border: 1px solid #ffffff; */
+    height: 4%;
+    
+}
+#main-wrapper .center_container #admin_page a{
+    margin-left: 90%;
+    /* color: #ffffff; */
+    font-size: 12px;
+    color: #898282;
+}
+
+#main-wrapper .center_container #main_controller{
+    height: 90%;
+    border-top: 1px solid #898282;
+    border-bottom: 1px solid #898282;
+
+}
+
+#main-wrapper .center_container #main_controller #is_ben{
+
+    border: 0.1px solid #898282;
+    color: white;
+    font-size: 20px;
+
+    width: 5%;
+    height: 5%;
+
+    text-align: center;
+    padding-top: 3px;
+    margin-left: 90.3%;
+    margin-top: 10px;
+
+    cursor: pointer;
+
+}
+
+#main-wrapper .center_container #main_controller #userinfo{
+    /* border: 1px solid #000; */
+    height: 86%;
+    margin-top: 1%;
+    display: flex;
+}
+
+#main-wrapper .center_container #main_controller #user_pic_container{
+    /* border: 1px solid #f10000; */
+    width: 20%;
+    height: 100%;
+    margin-left:10%;
+
+}
+
+/* #main-wrapper .center_container #main_controller #user_pic_container p_hover:hover{
+    opacity: 0.8;
+    background-color: rgb(4, 68, 95);
+
+
+} */
+
+#main-wrapper .center_container #main_controller #user_pic_container button{
+    border: none;
+    background-color: transparent;
+
+}
+#main-wrapper .center_container #main_controller #user_pic_container button:hover img{
+    opacity: 0.8;
+    color: #000;
+}
+
+#main-wrapper .center_container #main_controller #user_pic_container .cursor{
+    cursor: pointer;
+}
+
+#main-wrapper .center_container #main_controller #user_pic_container .profile{
+    /* border: 1px solid #88ff00; */
+    height: 60%;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+}
+#main-wrapper .center_container #main_controller #user_pic_container .profile #first_hover_img{
+    width: 60%;
+    height: 60%;
+
+}
+#main-wrapper .center_container #main_controller #user_pic_container .profile .hover-img{
+    position: absolute;
+ 
+    opacity: 0;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    
+}
+
+#main-wrapper .center_container #main_controller #user_pic_container .profile:hover .hover-img{
+    opacity: 1;
+    width: 80%;
+    height: 80%;
+    
+}
+
+
+#main-wrapper .center_container #main_controller #user_pic_container .profile img{
+    width: 100%;
+    height: 100%;
+}
+
+#main-wrapper .center_container #main_controller #user_pic_container .bottom_profile{
+    /* border: 1px solid #6f00ff; */
+    height: 23%;
+    margin-top: 15%;
+    display: flex;
+    
+}
+
+#main-wrapper .center_container #main_controller #user_pic_container .bottom_profile .profile2{
+/* border: 1px solid #00f514; */
+height: 100%;
+width: 45%;
+position: relative;
+display: flex;
+align-items: center;
+justify-content: center;
+
+}
+
+#main-wrapper .center_container #main_controller #user_pic_container .bottom_profile .profile2:hover .hover-img{
+opacity: 1;
+width: 80%;
+height: 80%;
+}
+
+#main-wrapper .center_container #main_controller #user_pic_container .bottom_profile .profile2 .hover-img{
+    position: absolute;
+ 
+    opacity: 0;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    
+}
+
+
+
+
+#main-wrapper .center_container #main_controller #user_pic_container .bottom_profile .profile2 img{
+    width: 100%;
+    height: 100%;
+
+}
+
+#main-wrapper .center_container #main_controller #user_pic_container .bottom_profile button:last-child{
+    margin-left: 10%;
+}
+
+/* 우기기기 */
+
+#main-wrapper .center_container #main_controller #userinfo #userinfo_content{
+/* border: 1px solid #000; */
+width: 60%;
+height: 100%;
+margin-left:8%;
+
+}
+
+#main-wrapper .center_container #main_controller #userinfo #userinfo_content #user_name{
+    /* border: 1px solid #ff0000; */
+    height: 10%;
+    color: white;
+    font-size: 40px;
+
+}
+
+
+#main-wrapper .center_container #main_controller #userinfo #userinfo_content #detail_info{
+    /* border: 1px solid #ffe600; */
+    width: 100%;
+    height: 50%;
+    display: flex;
+}
+
+
+#main-wrapper .center_container #main_controller #userinfo #userinfo_content #detail_info li{
+    color: white;
+    padding-top: 30px;
+    
+}
+
+#main-wrapper .center_container #main_controller #userinfo #userinfo_content #detail_info #left_info{
+    /* border: 1px solid #9c1212; */
+    width: 40%;
+    height: 100%;
+    display: flex;
+
+
+}
+
+#main-wrapper .center_container #main_controller #userinfo #userinfo_content #detail_info .first_info_ul{
+    /* border: 1px solid #000; */
+    margin-left: 3%;
+    width: 120px;
+    font-weight: bold;
+
+}
+
+#main-wrapper .center_container #main_controller #userinfo #userinfo_content #detail_info .second_info_ul{
+    margin-left: 50px;
+    width: 200px;
+}
+
+
+#main-wrapper .center_container #main_controller #userinfo #userinfo_content #detail_info .second_info_ul #give_point{
+    border: none;
+    background-color: transparent;
+    width: 70px;
+    text-align: right;
+    color: white;
+}
+
+#main-wrapper .center_container #main_controller #userinfo #userinfo_content #detail_info .second_info_ul li{
+border-bottom: 1px solid #ffffff;
+text-align: right;
+width: 70%;
+}
+
+
+#main-wrapper .center_container #main_controller #userinfo #userinfo_content #detail_info .second_info_ul #div_contain{
+    display: flex;
+    height: 50px;
+    position: relative;
+}
+
+#main-wrapper .center_container #main_controller #userinfo #userinfo_content #detail_info .second_info_ul #secound_info_li{
+    /* border: 3px solid #000; */
+}
+
+#main-wrapper .center_container #main_controller #userinfo #userinfo_content #detail_info .second_info_ul input:focus{
+    outline: none;
+}
+
+
+
+#main-wrapper .center_container #main_controller #userinfo #userinfo_content #detail_info #right_info{
+    /* border: 1px solid #9c1212; */
+    width: 40%;
+    height: 100%;
+    margin-left: 5%;
+    display: flex;
+
+}
+
+#main-wrapper .center_container #main_controller #userinfo #userinfo_content #detail_info #right_info .second_info_ul div{
+/* border: 1px solid #000; */
+display: flex;
+}
+
+#main-wrapper .center_container #main_controller #userinfo #userinfo_content #detail_info #right_info .second_info_ul #img_li{
+    margin-top: 20px;
+}
+
+
+
+#main-wrapper .center_container #main_controller #userinfo #userinfo_content #detail_info #right_info .second_info_ul div a{
+    /* border: 1px solid #000; */
+    width: 15px;
+    
+}
+#main-wrapper .center_container #main_controller #userinfo #userinfo_content #detail_info #right_info .second_info_ul div a img{
+    width: 15px;
+
+    /* border: 1px solid #ff0000; */
+
+}
+    
+#main-wrapper .center_container #main_controller #userinfo #userinfo_content #detail_info #right_info .second_info_ul div .margin {
+margin-left: 10px;
+}
+
+#main-wrapper .center_container #main_controller #userinfo #userinfo_content #detail_info button{
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
+}
+
+
+#main-wrapper .center_container #main_controller #userinfo #userinfo_content #detail_info .payment{
+    color: white;    
+    height: 40%;
+    width: 40px;
+    text-align: center;
+    font-size: 8px;
+    position: absolute;
+    right: 3px;
+    bottom: 0px;
+}
+
+.red {
+    filter: grayscale(0%) brightness(100%);
+  }

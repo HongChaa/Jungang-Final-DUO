@@ -12,7 +12,7 @@ import java.io.Serializable;
 @Builder
 public class BoardLikeCompositeKey implements Serializable {
 
-    private Board board;
+    private long board;
 
-    private User user;
+    private String user;
 }

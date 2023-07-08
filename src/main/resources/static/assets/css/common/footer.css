@@ -28,6 +28,10 @@
     /* border: 1px solid #000; */
 }
 
+.footer p {
+    text-align: center;
+}
+
 .footer-company {
 
     margin: 0 auto;
@@ -40,7 +44,11 @@
     line-height: 15px;
     color: #FFFFFF;
     /* border: 1px solid #000; */
+    
+}
 
+.footer-company p {
+    text-align: center;
 }
 
 .footer-logo {

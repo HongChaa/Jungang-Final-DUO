@@ -1,0 +1,532 @@
+@import url("/assets/css/common.css");
+
+#main-wrapper{
+    /* border:  1px solid #ffffff; */
+    height: 1400px;
+
+}
+
+#main-wrapper .container{
+/* border: 3px solid #000; */
+width: 100%;
+height: 100%;
+display: flex;
+}
+
+/* 왼쪽 bestWriter, 배너 */
+#main-wrapper .container .left_container{
+ /* border: 3px solid #fc0000; */
+ height: 64%;
+ width: 20%;
+
+}
+
+/* 왼쪽 상단 bestWriter 전체 */
+#main-wrapper .container .left_container .best_writer{
+ /* border: 1px solid #fbff00; */
+ width: 100%;
+ height: 43%;
+ border-radius: 10px;
+ background-color:#e7e7e7;
+
+
+}
+
+/* bestWriter 제목 */
+#main-wrapper .container .left_container .best_writer #best_writer{
+/* border: 1px solid #000; */
+width: 100%;
+height: 12%;
+margin-top: 5%;
+
+display: flex;
+
+justify-content: center;align-items: center;
+
+}
+
+/* bestWriter 사진grade틀 */
+
+#main-wrapper .container .left_container .best_writer #best_writer .grade_img{
+/* border: solid #000; */
+
+width:13%;
+height: 70%;
+
+}
+
+/* grade img */
+#main-wrapper .container .left_container .best_writer #best_writer .grade_img img{
+width: 100%;
+height: auto;
+
+}
+
+/* bestwrite 글 */
+#main-wrapper .container .left_container .best_writer #best_writer #bestwriter{
+    /* border: solid #000; */
+
+    width: 50%;
+    height: 80%;
+    font-size: 20px;
+    font-weight: 800;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    }
+
+
+
+/* best writer user 전체틀 */
+#main-wrapper .container .left_container .best_writer #best_writer_user{
+ width: 100%;
+ height: 90%;
+ /* border: 3px solid #37ff00; */
+ display: flex;
+ justify-content: center;
+}
+
+
+#main-wrapper .container .left_container .best_writer #best_writer_user .writer_member{
+/* border: 1px solid #eb0707; */
+
+height: 80%;
+width: 70%;
+margin-top: 7px;
+
+
+}
+
+/* user  li 태그들 */
+#main-wrapper .container .left_container .best_writer #best_writer_user .writer_member .duo_member{
+/* border: 1px solid #000; */
+width: 100%;
+height: 10%;
+display: flex;
+margin-top: 5px;
+}
+
+/* grade 틀 */
+#main-wrapper .container .left_container .best_writer #best_writer_user .writer_member .duo_member .img_controll{
+/* border: 1px solid #ffffff; */
+    width: 25px;
+height: 25px;
+margin-left: 35px;
+}
+
+/* 등급 이미지들 */
+#main-wrapper .container .left_container .best_writer #best_writer_user .writer_member .duo_member .img_controll img{
+width: 100%;
+height: 100%;
+
+}
+
+/* user nickname */
+#main-wrapper .container .left_container .best_writer #best_writer_user .writer_member .duo_member li{
+    /* border: 1px solid #000; */
+    width: 70%;
+    height: 100%;
+    display: flex;align-items: center;
+    margin-left: 10px;
+
+}
+
+
+/* 배너 전체틀 */
+#main-wrapper .container .left_container .banner{
+    /* border: 1px solid #ffaa00; */
+    width: 100%;
+    height: 55%;
+    margin-top: 10%;
+    background-color:#e7e7e7;
+
+    }
+
+/* 우측 container 전체 틀 */
+#main-wrapper .container .right_box{
+width: 75%;
+height: 100%;
+/* border: 3px solid #ff0000; */
+}
+
+/* 게시글 작성 전체틀 */
+#main-wrapper .container .right_container{
+    /* border: 10px solid #000; */
+    height: 65%;
+    width: 100%;
+    margin-left: 5%;
+    margin-top: 1%;
+    border-radius: 10px;
+     background-color:#e7e7e7;
+     padding: 2%;
+
+
+}
+
+/* 제목 */
+#main-wrapper .container .right_container h1{
+    /* border: 1px solid #ffffff; */
+    width: 100%;
+    height: 5%;
+    display: flex;
+    align-items: center;
+    font-size: 20px;
+    font-weight: 700;
+}
+
+/* 게시글 및 작성자 정보 라인 */
+#main-wrapper .container .right_container .board_info{
+    border-bottom: 1px solid #6d6565;
+    width: 100%;
+    height: 5%;
+    display: flex;
+    align-items: center;
+        position: relative;
+
+}
+
+/* 게시판 category */
+#main-wrapper .container .right_container .board_info .category{
+    /* border: 1px solid #000; */
+    height: 80%;
+    width: 7%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    font-size: 20px;
+    color: white;
+
+    border-radius: 20px;
+    background-color: #111E30;
+
+}
+
+/* 날짜 */
+#main-wrapper .container .right_container .board_info .date{
+    /* border: 1px solid #000; */
+    height: 80%;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    margin-left: 2%;
+}
+
+/* 조회수 */
+#main-wrapper .container .right_container .board_info .count{
+    /* border: 1px solid #000; */
+    height: 80%;
+    width: 2%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-left: 1%;
+    font-weight: 700;
+}
+
+/* 조회수,댓글수 사진 틀 */
+#main-wrapper .container .right_container .board_info .img{
+    /* border: 1px solid #000; */
+    height: 80%;
+    width: 4%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-left: 2%;
+}
+
+/* 조회수,댓글수 사진 */
+
+#main-wrapper .container .right_container .board_info img{
+    /* border: 1px solid #000; */
+    height: 80%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+
+}
+
+/* 작성자 및 사진 전체 틀 */
+#img_right{
+    width: 200px;
+    height: 25px;
+    display: flex;
+    justify-content: end;
+    /* border: 1px solid #000; */
+    position: absolute;
+    right: 0;
+    background-color: #e7e7e7;
+}
+
+/* 등급 사진 틀 */
+
+#main-wrapper .container .right_container .board_info .right_img{
+/* border: 1px solid #000; */
+
+ width: 30px;
+ height: 30px;
+}
+
+
+/* 작성자  */
+
+#main-wrapper .container .right_container .board_info .right_text{
+    margin-left: 2%;
+    position: relative;
+    top:8px;
+    width: fit-content;
+    /* border: 1px solid #000; */
+    text-align: right;
+    display: flex;
+
+}
+
+/* 게시판 내용 */
+#main-wrapper .container .right_container #content{
+
+    width: 100%;
+    min-height: 50%;
+    border: none;
+    outline: none;
+    font-size: 18px;
+    padding: 30px;
+    line-height: 1.5em;
+
+}
+
+/* 게시판 좋아요 전체 틀 */
+#main-wrapper .container .right_box .islike{
+    /* border: 1px solid #000; */
+    width: 95%;
+    height: 6%;
+    margin-left: 5%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* 게시판 좋아요 버튼 */
+#main-wrapper .container .right_box .islike button{
+    width: 12%;
+    height: 55%;
+    /* border: 1px solid #d0ff00; */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius:20px;
+    cursor: pointer;
+    margin-left: 10%;
+    background-color: #afafaf;
+
+
+}
+
+#main-wrapper .container .right_box .islike button:hover{
+    background-color: #ffffff;
+
+}
+
+/* 게시판 좋아요 사진틀 */
+
+#main-wrapper .container .right_box .islike button #like_img{
+    /* border: 1px solid #000; */
+    width: 25px;
+    height: 30px;
+}
+/* 게시판 좋아요 사진 */
+#main-wrapper .container .right_box .islike button #like_img img{
+    /* border: 1px solid #000; */
+    width: 100%;
+    height: 100%;
+}
+
+/* 좋아요 숫자 */
+#main-wrapper .container .right_box .islike #like_count{
+ /* border: 1px solid #000; */
+ margin-left: 2%;
+ font-size: 23px;
+ color:white;
+}
+/* 하단 댓글부분 전체 틀 */
+#main-wrapper .container .right_box #bottom_box{
+    /* border: 3px solid #000; */
+    border-radius: 10px;
+    width: 1050px;
+    overflow: hidden;
+    margin-left: 5%;
+    background-color: #e7e7e7;
+
+
+}
+
+/* 댓글작성 틀 */
+#main-wrapper .container .right_box .reply_container{
+    width: 100%;
+    height: 15%;
+    padding: 5px;
+}
+
+/* 댓글 작성란 */
+#main-wrapper .container .right_box .reply_container #reply{
+    width: 100%;
+    border:none;    
+    background-color:#e7e7e7;
+   resize: none;
+    outline: none;
+    font-size: 18px;
+    padding: 1%;
+
+}
+
+/* 댓글 placeholder */
+#main-wrapper .container .right_box .reply_container #reply::placeholder{
+    font-size: 18px;
+}
+
+
+
+/* 댓글 view 전체 틀 */
+#main-wrapper .container .right_box .reply_result{
+    background-color:#e7e7e7;
+   border-top: 1px solid #000;
+    width: 100%;
+    height: 200px;
+
+}
+
+/* 댓글 한줄 전체 틀 */
+
+#main-wrapper .container .right_box .reply_result #reply_show{
+/* border: solid #000; */
+
+padding-top: 30px;
+width: 100%;
+height: 80px;
+display: flex;
+}
+
+/* 댓글 내 이미지 틀 */
+
+#main-wrapper .container .right_box .reply_result #reply_show #reply_img{
+/* border:  solid #000; */
+width: 6%;
+height: 100%;
+margin-left: 30px;
+
+}
+
+/* 댓글 내 이미지 */
+#main-wrapper .container .right_box .reply_result #reply_show #reply_img img{
+width: 100%;
+border-radius: 50%;
+height: 100%;
+}
+
+/* 댓글 내 id */
+#main-wrapper .container .right_box .reply_result #reply_show #reply_id{
+    color:#000;
+    display: flex;
+    align-items: center;
+    font-size: 20px;
+    font-weight: 400;
+    width: 18%;
+    margin-left: 3%;
+}
+
+/* 댓글 내 내용_사진 */
+
+#main-wrapper .container .right_box .reply_result #reply_show #reply_content{
+color: #000;
+display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 20px;
+    font-weight: 400;
+    width: 60%;
+    border-radius: 10px;
+    background-color:rgb(255, 255, 255);
+
+}
+
+/* 댓글 제목 */
+#main-wrapper .container .right_box .reply_result #reply_show #reply_content p{
+    /* border: 1px solid #000; */
+    width: 80%;
+    height: 80%;
+    display: flex;
+    align-items: center;
+}
+
+
+/* 댓글 수정삭제 사진 틀 */
+#main-wrapper .container .right_box .reply_result #reply_show #reply_content .reply_img_contain .reply_img{
+    width: 20px;
+    height: 30px;
+    /* border: 1px solid #000; */
+    background: none;
+    outline: none;
+    border: none;
+    cursor: pointer;
+
+}
+
+/* 댓글 수정삭제 첫번째 사진 틀 */
+
+#main-wrapper .container .right_box .reply_result #reply_show #reply_content .reply_img_contain .first_img{
+    margin-left: 35px;
+
+}
+
+/* 댓글 사진 */
+#main-wrapper .container .right_box .reply_result #reply_show #reply_content .reply_img_contain .reply_img img{
+ width: 23px;
+ height: 23px;
+ border-radius: 50%;
+}
+
+/* 댓글 작성시간 */
+#main-wrapper .container .right_box .reply_result #reply_show .reply_time{
+    color: #000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    /* border: 1px solid #c3ff00; */
+
+    width: 15%;
+    font-size: 20px;
+    font-weight: 400;
+
+}
+
+/* 등록 조정 */
+#main-wrapper .container .right_box #reply_button{
+    /* border-bottom: 3px solid #002cf0; */
+    width: 100%;
+    height: 20%;
+    background-color:#e7e7e7;
+    display: flex;
+    justify-content: end;
+
+
+}
+
+/* 등록 버튼 */
+#main-wrapper .container .right_box #reply_button button{
+width: 15%;
+height: 40%;
+font-size: 20px;
+font-weight: bold;
+background-color: #CCC264;
+border-radius: 20px;
+
+margin-top: 3px;
+margin-right: 5px;
+border:none;
+cursor: pointer;
+
+}

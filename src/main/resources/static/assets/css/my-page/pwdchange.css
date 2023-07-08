@@ -1,0 +1,221 @@
+@import "../common/common.css";
+
+/* .sub-wrapper{
+    display:flex;
+} */
+
+body::-webkit-scrollbar {
+    display: none;
+}
+
+header {
+    display: flex;
+}
+
+#main-wrapper {
+    /*border: 1px solid #fff;*/
+    height: 600px;
+    color: white;
+}
+
+/* 좌측 메뉴 영역 */
+#my-page-sidebar {
+    width: 20%;
+    font-size: 18px;
+    line-height: 2.2em;
+    border-right: 1px solid #FFFFFF;
+    /*border: 1px solid #fff;*/
+}
+
+#my-page-menu-list {
+    margin-top: 30px;
+}
+
+/* 각 페이지에서는 해당 페이지 메뉴에 fw700 default 먹이기 */
+.my-page-menu:hover {
+    font-weight: 700;
+    cursor: pointer;
+}
+
+#my-info-modify {
+    font-weight: 700;
+}
+
+/* 우측 콘텐츠 영역 */
+.now-pwd {
+    display: flex;
+    margin: 0 auto;
+    width: 430px;
+    height: 54px;
+    left: 33px;
+    top: 96px;
+}
+
+.n-pwd {
+    box-sizing: border-box;
+
+    margin: 0 auto;
+    width: 263px;
+    height: 35px;
+    left: 157px;
+    top: 13px;
+
+    background: #111E30;
+    border: 1px solid #FFFFFF;
+    border-radius: 3px;
+
+}
+
+.n-pwd:focus {
+
+
+    margin: 0 auto;
+    border: 2px solid #FFFFFF;
+    /* 포커스된 입력창에  추가 */
+    background: #8498B5;
+    /* 포커스된 입력창 배경색 변경 */
+    outline: none;
+}
+
+
+#my-page-content .sub-wrapper p {
+    width: 216px;
+    height: 24px;
+    left: 17px;
+    top: 17px;
+
+
+    font-weight: 500;
+    font-size: 20px;
+    line-height: 24px;
+
+    color: #FFFFFF;
+
+}
+.change-pwd{
+    display: flex;
+    margin: 0 auto;
+    width: 430px;
+    height: 54px;
+    left: 33px;
+    top: 140px;
+}
+
+.pwd-check {
+    margin: 0 auto;
+    width: 430px;
+    height: 54px;
+    left: 33px;
+    top: 96px;
+
+}
+
+.checkon-pwd {
+    display: flex;
+    margin: 0 auto;
+    width: 430px;
+    height: 54px;
+    left: 33px;
+    top: 96px;
+
+
+}
+.c-pwd:focus{
+
+    margin: 0 auto;
+    border: 2px solid #FFFFFF;
+    /* 포커스된 입력창에  추가 */
+    background: #8498B5;
+    /* 포커스된 입력창 배경색 변경 */
+    outline: none;
+
+}
+
+.c-pwd {
+    box-sizing: border-box;
+
+    margin: 0 auto;
+    width: 263px;
+    height: 35px;
+    left: 157px;
+    top: 13px;
+
+    background: #111E30;
+    border: 1px solid #FFFFFF;
+    border-radius: 3px;
+
+}
+
+.pwd-check {
+
+    display: flex;
+    margin: 0 auto;
+    width: 430px;
+    height: 54px;
+    left: 33px;
+    top: 140px;
+}
+
+.checkon-pwd {
+
+    box-sizing: border-box;
+
+    margin: 0 auto;
+    width: 263px;
+    height: 35px;
+    left: 157px;
+    top: 12px;
+
+    background: #111E30;
+    border: 1px solid #FFFFFF;
+    border-radius: 3px;
+}
+.checkon-pwd:focus{
+
+
+    margin: 0 auto;
+    border: 2px solid #FFFFFF;
+    /* 포커스된 입력창에  추가 */
+    background: #8498B5;
+    /* 포커스된 입력창 배경색 변경 */
+    outline: none;
+
+
+}
+
+.alter-change {
+    box-sizing: border-box;
+
+    margin: 0 auto;
+    width: 120px;
+    height: 30px;
+    left: 333px;
+    top: 203px;
+    margin-left: 795px;
+    margin-top: 40px;
+    border: 1px solid #FFFFFF;
+    border-radius: 5px;
+
+}
+
+span {
+    margin: 0 auto;
+    width: 105px;
+    height: 22px;
+    left: 7px;
+    top: 4px;
+
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 22px;
+    /* identical to box height */
+
+
+    color: #FFFFFF;
+}
+
+.alter-change:hover span{
+    color: #283d5d;
+}

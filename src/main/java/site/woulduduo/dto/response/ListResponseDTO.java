@@ -11,11 +11,12 @@ import java.util.List;
 @AllArgsConstructor
 @EqualsAndHashCode
 @ToString
-public class ListResponseDTO<T> {
+@Builder
+public class ListResponseDTO<T, U> {
 
     private int count;
 
-    private PageResponseDTO<T> pageInfo;
+    private PageResponseDTO<U> pageInfo;
 
     private List<T> list;
 

@@ -1,16 +1,19 @@
 package site.woulduduo.dto.request.user;
 
 import lombok.*;
+import org.springframework.web.multipart.MultipartFile;
 import site.woulduduo.enumeration.Gender;
 
 import javax.validation.constraints.*;
 import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 
 @Setter @Getter
 @ToString @EqualsAndHashCode
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
+@Data
 public class UserRegisterRequestDTO {
 
     @NotBlank(message = "이메일은 필수 입력값입니다.")
@@ -47,4 +50,16 @@ public class UserRegisterRequestDTO {
     @NotNull(message = "성별은 필수 입력값입니다.")
     private Gender userGender;
 
+    @Builder.Default
+    private MultipartFile[] profileImages = new MultipartFile[0];
+
+    private String[] profileImagePaths;
+
+
+
+    // 생일 입력 방식을 (yyyy-mm-dd -> yyyy.mm.dd)로 바꾸는 메서드
+    public void setUserBirthday(String userBirthday) {
+        LocalDate birthday = LocalDate.parse(userBirthday, DateTimeFormatter.ofPattern("yyyy-MM-dd"));
+        this.userBirthday = birthday;
+    }
 }

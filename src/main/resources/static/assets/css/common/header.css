@@ -2,6 +2,7 @@
 @import "footer.css";
 @import "../chatting/chattingModal.css";
 @import "../chatting/chattingMessageModal.css";
+@import "../chatting/chatting-calendar.css";
 
 /* header style */
 header {
@@ -16,7 +17,7 @@ header {
 
 /* navigation bar style */
 #nav-bar {
-    width: 23%;
+    width: fit-content;
     height: 120px;
 
     display: flex;
@@ -28,6 +29,7 @@ header {
 /* user navigation bar style */
 #user-nav-bar {
     width: 40%;
+    margin-right: 50px;
 
     display: flex;
     justify-content: space-evenly;
@@ -48,6 +50,11 @@ header {
 /* my page modal style */
 #my-page-modal {
     right: -40px;
+    position: absolute;
+
+    color: #000;
+
+    z-index: 1;
 }
 
 #my-page-modal:before {
@@ -69,18 +76,20 @@ header {
     width: 50px;
     height: 50px;
     border-radius: 50%;
-
     margin-right: 20px;
+    overflow: hidden;
+}
 
-    background-size: 70px;
-    /* html 에 보여주기 위한 임시 정보 - 본 프로젝트에 합칠 때는 필요없음 */
-    background-image: url('https://i.namu.wiki/i/-BO7m4nlr6HAifi1A7oJrs6EFeP4z4gg7mvRy9sKhdDXnw_e0bKn7wo-0shhcAQuL3kvhs5YSeXuyxaMXDh9vjUx5qjK4ONEmonhqmyKHJ3sCLdgDBQI3SCnSlAn1ir7A37bgicvwlBFqyg-s-ouPw.webp');
-    background-position: top;
+#profile-img-wrapper img {
+    width: 50px;
+    height: 60px;
+    object-fit: cover;
 }
 
 #nickname-wrapper {
     font-size: 1.3em;
     font-weight: bold;
+    margin-top: 10px;
 }
 
 #user-info-wrapper {
@@ -147,20 +156,16 @@ header {
     content: "";
 }
 
-#sign-in-dialog {
-    background: none;
-    left: 1056px;
-    top: -398px;
-}
-
-#sign-in-dialog::backdrop {
-    background: none;
-}
-
 /* sign in modal */
+#sign-in-modal-wrapper {
+    position: absolute;
+    top: 47px;
+    right: -64px;
+    z-index: 1;
+}
+
 #sign-in-modal {
     /*right: -65px;*/
-
     height: 300px;
 
     display: flex;
@@ -281,6 +286,10 @@ header {
     justify-content: space-between;
 }
 
+.common-menu-wrapper {
+    margin-right: 30px;
+}
+
 .common-menu-wrapper > a {
     font-size: 25px;
     color: #fff;
@@ -298,13 +307,15 @@ header {
 
     text-align: center;
     line-height: 120px;
+
+    margin-bottom: 40px;
 }
 
 /* fixed-btn-wrapper */
 #fixed-btn-wrapper {
     position: fixed;
-    right: 280px;
-    bottom: 50px;
+    right: 10%;
+    bottom: 5%;
 
     display: flex;
     flex-flow: column;
@@ -329,6 +340,10 @@ header {
     width: 30px;
 }
 
+#to-top-btn {
+    display: none;
+}
+
 #chatting-btn {
     margin-top: 10px;
 
@@ -340,7 +355,7 @@ header {
     top: 1px;
     right: 1px;
 
-    display: none;
+    /*display: none;*/
     /* 값이 있을때 block으로 바꾸기 */
     /* display: block */
     background: #FF0000;
@@ -349,4 +364,7 @@ header {
 
     color: #fff;
     font-weight: bold;
+
+    width: fit-content;
+    min-width: 20px;
 }

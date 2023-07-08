@@ -10,9 +10,8 @@
     <title>WOULD U DUO</title>
     <link rel="icon" href="/assets/img/main/simple-favicon-navy.png">
 
-    <%@ include file="common/static-head.jsp"%>
-    <link rel="stylesheet" href="/assets/css/main.css">
-
+    <%@ include file="common/static-head.jsp" %>
+    <script src="/assets/js/user/index.js" type="module" defer></script>
 </head>
 <body>
 <!--    프로필 카드 상단 검색 조건 메뉴바 -->
@@ -20,22 +19,23 @@
 <div id="main-wrapper">
 
     <%@ include file="common/header.jsp" %>
-
+    <div id="login-check" data-login="${login.userAccount}" style="display: none;"></div>
     <div id="search-bar">
         <!--        인풋 닉네임 검색 -->
-        <label><input type="text" id="searchBy-nickname" placeholder="듀오 검색하기" name="keyword"></label>
+        <label><input type="text" id="searchBy-nickname" placeholder="듀오 검색하기" name="keyword"
+                      spellcheck="false"></label>
         <!--        포지션 검색 라디오 -->
         <div id="searchBy-position">
             <label class="position-option">
-                <input class="select-position" type="radio" name="position" value="">
+                <input class="select-position" type="radio" name="position" value="all">
                 <img class="position-image" src="/assets/img/main/ALL.png" alt="ALL">
             </label>
             <label class="position-option">
                 <input class="select-position" type="radio" name="position" value="TOP">
                 <img class="position-image" src="/assets/img/main/TOP.png" alt="TOP"></label>
             <label class="position-option">
-                <input class="select-position" type="radio" name="position" value="JGL">
-                <img class="position-image" src="/assets/img/main/JGL.png" alt="JGL"></label>
+                <input class="select-position" type="radio" name="position" value="JUG">
+                <img class="position-image" src="/assets/img/main/JUG.png" alt="JUG"></label>
             <label class="position-option">
                 <input class="select-position" type="radio" name="position" value="MID">
                 <img class="position-image" src="/assets/img/main/MID.png" alt="MID"></label>
@@ -82,8 +82,8 @@
             <div class="sortby-menubar" id="view-followings">팔로잉</div>
             <div class="sortby-menubar" id="sort-by">
                 <label for="order-list"><select id="order-list" name="sort">
-                    <option class="dropdown-list" value=avgRate">별점순</option>
-                    <option class="dropdown-list" value="matchingRate">매칭률순</option>
+                    <option class="dropdown-list" value="userAvgRate">별점순</option>
+                    <option class="dropdown-list" value="userMatchingRate">매칭률순</option>
                 </select>
                 </label>
             </div>
@@ -92,934 +92,108 @@
     <!--    프로필카드 리스트 영역 -->
     <div id="profile-cards-wrapper">
         <!--        프로필 카드 한 장 -->
-        <div class="duo-profile">
-            <img class="duo-tier" src="/assets/img/main/TFT_Regalia_Challenger.png" alt="tier">
-            <!--            프로필 카드 좌측 -->
-            <div class="profile-left-side">
-                <div class="profile-frame">
-                    <img class="profile-image" src="/assets/img/main/profile-image.jpg" alt="프로필 이미지">
-                </div>
-                <div class="profile-sns">
-                    <a href="#" class="sns-type instagram"><img class="sns-image" src="/assets/img/main/instagram.png"
-                                                                alt="instagram"></a>
-                    <a href="#" class="sns-type facebook"><img class="sns-image" src="/assets/img/main/facebook.png"
-                                                               alt="facebook"></a>
-                    <a href="#" class="sns-type twitter"><img class="sns-image" src="/assets/img/main/twitter.png"
-                                                              alt="twitter"></a>
-                    <div class="sns-type chatting-icon"><img class="sns-image" src="/assets/img/main/chatting-icon.png"
-                                                             alt="chatting"></div>
-                </div>
-            </div>
-            <!--            프로필 카드 우측 -->
-            <div class="profile-right-side">
-                <div class="position-nickname">
-                    <img class="preferred-position" src="/assets/img/main/MID.png" alt="포지션">
-                    <p class="user-nickname">jhlee0622</p>
-                    <img class="follow-status" src="/assets/img/main/not-following.png" alt="following">
-                </div>
-                <div class="rate-matching-point">
-                    <div class="rate-matching-point rate-point-box"><img class="rate-matching-point-image"
-                                                                         src="/assets/img/main/star.png" alt="rate">
-                        <p class="avg-rate">89.2</p></div>
-                    <div class="rate-matching-point matching-point-box"><img class="rate-matching-point-image"
-                                                                             src="/assets/img/main/coin.png" alt="coin">
-                        <p class="matching-point">500</p></div>
-                </div>
-                <div class="profile-comment"><p>여기에 자기소개를 적을거에요^^ 같이 게임해용~~~</p></div>
-                <div class="profile-most-champ">
-                    <ul class="champ-list">
-                        <li class="most-pic first-champ"><img src="/assets/img/main/Skarner_3.jpg" alt="first-champ">
-                        </li>
-                        <li class="most-pic second-champ"><img src="/assets/img/main/TahmKench_0.jpg"
-                                                               alt="second-champ"></li>
-                        <li class="most-pic third-champ"><img src="/assets/img/main/Ziggs_2.jpg" alt="third-champ"></li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-        <!--        아래부터는 지워도 되는 부분입니다 --------------------------------------------------------------------->
-        <!--        프로필 카드 한 장 -->
-        <div class="duo-profile">
-            <img class="duo-tier" src="/assets/img/main/TFT_Regalia_Challenger.png" alt="tier">
-            <!--            프로필 카드 좌측 -->
-            <div class="profile-left-side">
-                <div class="profile-frame">
-                    <img class="profile-image" src="/assets/img/main/profile-image.jpg" alt="프로필 이미지">
-                </div>
-                <div class="profile-sns">
-                    <a href="#" class="sns-type instagram"><img class="sns-image" src="/assets/img/main/instagram.png"
-                                                                alt="instagram"></a>
-                    <a href="#" class="sns-type facebook"><img class="sns-image" src="/assets/img/main/facebook.png"
-                                                               alt="facebook"></a>
-                    <a href="#" class="sns-type twitter"><img class="sns-image" src="/assets/img/main/twitter.png"
-                                                              alt="twitter"></a>
-                    <div class="sns-type chatting-icon"><img class="sns-image" src="/assets/img/main/chatting-icon.png"
-                                                             alt="chatting"></div>
-                </div>
-            </div>
-            <!--            프로필 카드 우측 -->
-            <div class="profile-right-side">
-                <div class="position-nickname">
-                    <img class="preferred-position" src="/assets/img/main/MID.png" alt="포지션">
-                    <p class="user-nickname">jhlee0622</p>
-                    <img class="follow-status" src="/assets/img/main/following.png" alt="following">
-                </div>
-                <div class="rate-matching-point">
-                    <div class="rate-matching-point rate-point-box"><img class="rate-matching-point-image"
-                                                                         src="/assets/img/main/star.png" alt="rate">
-                        <p class="avg-rate">89.2</p></div>
-                    <div class="rate-matching-point matching-point-box"><img class="rate-matching-point-image"
-                                                                             src="/assets/img/main/coin.png" alt="coin">
-                        <p class="matching-point">500</p></div>
-                </div>
-                <div class="profile-comment"><p>여기에 자기소개를 적을거에요^^ 같이 게임해용~~~</p></div>
-                <div class="profile-most-champ">
-                    <ul class="champ-list">
-                        <li class="most-pic first-champ"><img src="/assets/img/main/Skarner_3.jpg" alt="first-champ">
-                        </li>
-                        <li class="most-pic second-champ"><img src="/assets/img/main/TahmKench_0.jpg"
-                                                               alt="second-champ"></li>
-                        <li class="most-pic third-champ"><img src="/assets/img/main/Ziggs_2.jpg" alt="third-champ"></li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-        <!--        프로필 카드 한 장 -->
-        <div class="duo-profile">
-            <img class="duo-tier" src="/assets/img/main/TFT_Regalia_Challenger.png" alt="tier">
-            <!--            프로필 카드 좌측 -->
-            <div class="profile-left-side">
-                <div class="profile-frame">
-                    <img class="profile-image" src="/assets/img/main/profile-image.jpg" alt="프로필 이미지">
-                </div>
-                <div class="profile-sns">
-                    <a href="#" class="sns-type instagram"><img class="sns-image" src="/assets/img/main/instagram.png"
-                                                                alt="instagram"></a>
-                    <a href="#" class="sns-type facebook"><img class="sns-image" src="/assets/img/main/facebook.png"
-                                                               alt="facebook"></a>
-                    <a href="#" class="sns-type twitter"><img class="sns-image" src="/assets/img/main/twitter.png"
-                                                              alt="twitter"></a>
-                    <div class="sns-type chatting-icon"><img class="sns-image" src="/assets/img/main/chatting-icon.png"
-                                                             alt="chatting"></div>
-                </div>
-            </div>
-            <!--            프로필 카드 우측 -->
-            <div class="profile-right-side">
-                <div class="position-nickname">
-                    <img class="preferred-position" src="/assets/img/main/MID.png" alt="포지션">
-                    <p class="user-nickname">jhlee0622</p>
-                    <img class="follow-status" src="/assets/img/main/following.png" alt="following">
-                </div>
-                <div class="rate-matching-point">
-                    <div class="rate-matching-point rate-point-box"><img class="rate-matching-point-image"
-                                                                         src="/assets/img/main/star.png" alt="rate">
-                        <p class="avg-rate">89.2</p></div>
-                    <div class="rate-matching-point matching-point-box"><img class="rate-matching-point-image"
-                                                                             src="/assets/img/main/coin.png" alt="coin">
-                        <p class="matching-point">500</p></div>
-                </div>
-                <div class="profile-comment"><p>여기에 자기소개를 적을거에요^^ 같이 게임해용~~~</p></div>
-                <div class="profile-most-champ">
-                    <ul class="champ-list">
-                        <li class="most-pic first-champ"><img src="/assets/img/main/Skarner_3.jpg" alt="first-champ">
-                        </li>
-                        <li class="most-pic second-champ"><img src="/assets/img/main/TahmKench_0.jpg"
-                                                               alt="second-champ"></li>
-                        <li class="most-pic third-champ"><img src="/assets/img/main/Ziggs_2.jpg" alt="third-champ"></li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-        <!--        프로필 카드 한 장 -->
-        <div class="duo-profile">
-            <img class="duo-tier" src="/assets/img/main/TFT_Regalia_Challenger.png" alt="tier">
-            <!--            프로필 카드 좌측 -->
-            <div class="profile-left-side">
-                <div class="profile-frame">
-                    <img class="profile-image" src="/assets/img/main/profile-image.jpg" alt="프로필 이미지">
-                </div>
-                <div class="profile-sns">
-                    <a href="#" class="sns-type instagram"><img class="sns-image" src="/assets/img/main/instagram.png"
-                                                                alt="instagram"></a>
-                    <a href="#" class="sns-type facebook"><img class="sns-image" src="/assets/img/main/facebook.png"
-                                                               alt="facebook"></a>
-                    <a href="#" class="sns-type twitter"><img class="sns-image" src="/assets/img/main/twitter.png"
-                                                              alt="twitter"></a>
-                    <div class="sns-type chatting-icon"><img class="sns-image" src="/assets/img/main/chatting-icon.png"
-                                                             alt="chatting"></div>
-                </div>
-            </div>
-            <!--            프로필 카드 우측 -->
-            <div class="profile-right-side">
-                <div class="position-nickname">
-                    <img class="preferred-position" src="/assets/img/main/MID.png" alt="포지션">
-                    <p class="user-nickname">jhlee0622</p>
-                    <img class="follow-status" src="/assets/img/main/not-following.png" alt="following">
-                </div>
-                <div class="rate-matching-point">
-                    <div class="rate-matching-point rate-point-box"><img class="rate-matching-point-image"
-                                                                         src="/assets/img/main/star.png" alt="rate">
-                        <p class="avg-rate">89.2</p></div>
-                    <div class="rate-matching-point matching-point-box"><img class="rate-matching-point-image"
-                                                                             src="/assets/img/main/coin.png" alt="coin">
-                        <p class="matching-point">500</p></div>
-                </div>
-                <div class="profile-comment"><p>여기에 자기소개를 적을거에요^^ 같이 게임해용~~~</p></div>
-                <div class="profile-most-champ">
-                    <ul class="champ-list">
-                        <li class="most-pic first-champ"><img src="/assets/img/main/Skarner_3.jpg" alt="first-champ">
-                        </li>
-                        <li class="most-pic second-champ"><img src="/assets/img/main/TahmKench_0.jpg"
-                                                               alt="second-champ"></li>
-                        <li class="most-pic third-champ"><img src="/assets/img/main/Ziggs_2.jpg" alt="third-champ"></li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-        <!--        프로필 카드 한 장 -->
-        <div class="duo-profile">
-            <img class="duo-tier" src="/assets/img/main/TFT_Regalia_Challenger.png" alt="tier">
-            <!--            프로필 카드 좌측 -->
-            <div class="profile-left-side">
-                <div class="profile-frame">
-                    <img class="profile-image" src="/assets/img/main/profile-image.jpg" alt="프로필 이미지">
-                </div>
-                <div class="profile-sns">
-                    <a href="#" class="sns-type instagram"><img class="sns-image" src="/assets/img/main/instagram.png"
-                                                                alt="instagram"></a>
-                    <a href="#" class="sns-type facebook"><img class="sns-image" src="/assets/img/main/facebook.png"
-                                                               alt="facebook"></a>
-                    <a href="#" class="sns-type twitter"><img class="sns-image" src="/assets/img/main/twitter.png"
-                                                              alt="twitter"></a>
-                    <div class="sns-type chatting-icon"><img class="sns-image" src="/assets/img/main/chatting-icon.png"
-                                                             alt="chatting"></div>
-                </div>
-            </div>
-            <!--            프로필 카드 우측 -->
-            <div class="profile-right-side">
-                <div class="position-nickname">
-                    <img class="preferred-position" src="/assets/img/main/MID.png" alt="포지션">
-                    <p class="user-nickname">jhlee0622</p>
-                    <img class="follow-status" src="/assets/img/main/not-following.png" alt="following">
-                </div>
-                <div class="rate-matching-point">
-                    <div class="rate-matching-point rate-point-box"><img class="rate-matching-point-image"
-                                                                         src="/assets/img/main/star.png" alt="rate">
-                        <p class="avg-rate">89.2</p></div>
-                    <div class="rate-matching-point matching-point-box"><img class="rate-matching-point-image"
-                                                                             src="/assets/img/main/coin.png" alt="coin">
-                        <p class="matching-point">500</p></div>
-                </div>
-                <div class="profile-comment"><p>여기에 자기소개를 적을거에요^^ 같이 게임해용~~~</p></div>
-                <div class="profile-most-champ">
-                    <ul class="champ-list">
-                        <li class="most-pic first-champ"><img src="/assets/img/main/Skarner_3.jpg" alt="first-champ">
-                        </li>
-                        <li class="most-pic second-champ"><img src="/assets/img/main/TahmKench_0.jpg"
-                                                               alt="second-champ"></li>
-                        <li class="most-pic third-champ"><img src="/assets/img/main/Ziggs_2.jpg" alt="third-champ"></li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-        <!--        프로필 카드 한 장 -->
-        <div class="duo-profile">
-            <img class="duo-tier" src="/assets/img/main/TFT_Regalia_Challenger.png" alt="tier">
-            <!--            프로필 카드 좌측 -->
-            <div class="profile-left-side">
-                <div class="profile-frame">
-                    <img class="profile-image" src="/assets/img/main/profile-image.jpg" alt="프로필 이미지">
-                </div>
-                <div class="profile-sns">
-                    <a href="#" class="sns-type instagram"><img class="sns-image" src="/assets/img/main/instagram.png"
-                                                                alt="instagram"></a>
-                    <a href="#" class="sns-type facebook"><img class="sns-image" src="/assets/img/main/facebook.png"
-                                                               alt="facebook"></a>
-                    <a href="#" class="sns-type twitter"><img class="sns-image" src="/assets/img/main/twitter.png"
-                                                              alt="twitter"></a>
-                    <div class="sns-type chatting-icon"><img class="sns-image" src="/assets/img/main/chatting-icon.png"
-                                                             alt="chatting"></div>
-                </div>
-            </div>
-            <!--            프로필 카드 우측 -->
-            <div class="profile-right-side">
-                <div class="position-nickname">
-                    <img class="preferred-position" src="/assets/img/main/MID.png" alt="포지션">
-                    <p class="user-nickname">jhlee0622</p>
-                    <img class="follow-status" src="/assets/img/main/following.png" alt="following">
-                </div>
-                <div class="rate-matching-point">
-                    <div class="rate-matching-point rate-point-box"><img class="rate-matching-point-image"
-                                                                         src="/assets/img/main/star.png" alt="rate">
-                        <p class="avg-rate">89.2</p></div>
-                    <div class="rate-matching-point matching-point-box"><img class="rate-matching-point-image"
-                                                                             src="/assets/img/main/coin.png" alt="coin">
-                        <p class="matching-point">500</p></div>
-                </div>
-                <div class="profile-comment"><p>여기에 자기소개를 적을거에요^^ 같이 게임해용~~~</p></div>
-                <div class="profile-most-champ">
-                    <ul class="champ-list">
-                        <li class="most-pic first-champ"><img src="/assets/img/main/Skarner_3.jpg" alt="first-champ">
-                        </li>
-                        <li class="most-pic second-champ"><img src="/assets/img/main/TahmKench_0.jpg"
-                                                               alt="second-champ"></li>
-                        <li class="most-pic third-champ"><img src="/assets/img/main/Ziggs_2.jpg" alt="third-champ"></li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-        <!--        프로필 카드 한 장 -->
-        <div class="duo-profile">
-            <img class="duo-tier" src="/assets/img/main/TFT_Regalia_Challenger.png" alt="tier">
-            <!--            프로필 카드 좌측 -->
-            <div class="profile-left-side">
-                <div class="profile-frame">
-                    <img class="profile-image" src="/assets/img/main/profile-image.jpg" alt="프로필 이미지">
-                </div>
-                <div class="profile-sns">
-                    <a href="#" class="sns-type instagram"><img class="sns-image" src="/assets/img/main/instagram.png"
-                                                                alt="instagram"></a>
-                    <a href="#" class="sns-type facebook"><img class="sns-image" src="/assets/img/main/facebook.png"
-                                                               alt="facebook"></a>
-                    <a href="#" class="sns-type twitter"><img class="sns-image" src="/assets/img/main/twitter.png"
-                                                              alt="twitter"></a>
-                    <div class="sns-type chatting-icon"><img class="sns-image" src="/assets/img/main/chatting-icon.png"
-                                                             alt="chatting"></div>
-                </div>
-            </div>
-            <!--            프로필 카드 우측 -->
-            <div class="profile-right-side">
-                <div class="position-nickname">
-                    <img class="preferred-position" src="/assets/img/main/MID.png" alt="포지션">
-                    <p class="user-nickname">jhlee0622</p>
-                    <img class="follow-status" src="/assets/img/main/following.png" alt="following">
-                </div>
-                <div class="rate-matching-point">
-                    <div class="rate-matching-point rate-point-box"><img class="rate-matching-point-image"
-                                                                         src="/assets/img/main/star.png" alt="rate">
-                        <p class="avg-rate">89.2</p></div>
-                    <div class="rate-matching-point matching-point-box"><img class="rate-matching-point-image"
-                                                                             src="/assets/img/main/coin.png" alt="coin">
-                        <p class="matching-point">500</p></div>
-                </div>
-                <div class="profile-comment"><p>여기에 자기소개를 적을거에요^^ 같이 게임해용~~~</p></div>
-                <div class="profile-most-champ">
-                    <ul class="champ-list">
-                        <li class="most-pic first-champ"><img src="/assets/img/main/Skarner_3.jpg" alt="first-champ">
-                        </li>
-                        <li class="most-pic second-champ"><img src="/assets/img/main/TahmKench_0.jpg"
-                                                               alt="second-champ"></li>
-                        <li class="most-pic third-champ"><img src="/assets/img/main/Ziggs_2.jpg" alt="third-champ"></li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-        <!--        프로필 카드 한 장 -->
-        <div class="duo-profile">
-            <img class="duo-tier" src="/assets/img/main/TFT_Regalia_Challenger.png" alt="tier">
-            <!--            프로필 카드 좌측 -->
-            <div class="profile-left-side">
-                <div class="profile-frame">
-                    <img class="profile-image" src="/assets/img/main/profile-image.jpg" alt="프로필 이미지">
-                </div>
-                <div class="profile-sns">
-                    <a href="#" class="sns-type instagram"><img class="sns-image" src="/assets/img/main/instagram.png"
-                                                                alt="instagram"></a>
-                    <a href="#" class="sns-type facebook"><img class="sns-image" src="/assets/img/main/facebook.png"
-                                                               alt="facebook"></a>
-                    <a href="#" class="sns-type twitter"><img class="sns-image" src="/assets/img/main/twitter.png"
-                                                              alt="twitter"></a>
-                    <div class="sns-type chatting-icon"><img class="sns-image" src="/assets/img/main/chatting-icon.png"
-                                                             alt="chatting"></div>
-                </div>
-            </div>
-            <!--            프로필 카드 우측 -->
-            <div class="profile-right-side">
-                <div class="position-nickname">
-                    <img class="preferred-position" src="/assets/img/main/MID.png" alt="포지션">
-                    <p class="user-nickname">jhlee0622</p>
-                    <img class="follow-status" src="/assets/img/main/following.png" alt="following">
-                </div>
-                <div class="rate-matching-point">
-                    <div class="rate-matching-point rate-point-box"><img class="rate-matching-point-image"
-                                                                         src="/assets/img/main/star.png" alt="rate">
-                        <p class="avg-rate">89.2</p></div>
-                    <div class="rate-matching-point matching-point-box"><img class="rate-matching-point-image"
-                                                                             src="/assets/img/main/coin.png" alt="coin">
-                        <p class="matching-point">500</p></div>
-                </div>
-                <div class="profile-comment"><p>여기에 자기소개를 적을거에요^^ 같이 게임해용~~~</p></div>
-                <div class="profile-most-champ">
-                    <ul class="champ-list">
-                        <li class="most-pic first-champ"><img src="/assets/img/main/Skarner_3.jpg" alt="first-champ">
-                        </li>
-                        <li class="most-pic second-champ"><img src="/assets/img/main/TahmKench_0.jpg"
-                                                               alt="second-champ"></li>
-                        <li class="most-pic third-champ"><img src="/assets/img/main/Ziggs_2.jpg" alt="third-champ"></li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-        <!--        프로필 카드 한 장 -->
-        <div class="duo-profile">
-            <img class="duo-tier" src="/assets/img/main/TFT_Regalia_Challenger.png" alt="tier">
-            <!--            프로필 카드 좌측 -->
-            <div class="profile-left-side">
-                <div class="profile-frame">
-                    <img class="profile-image" src="/assets/img/main/profile-image.jpg" alt="프로필 이미지">
-                </div>
-                <div class="profile-sns">
-                    <a href="#" class="sns-type instagram"><img class="sns-image" src="/assets/img/main/instagram.png"
-                                                                alt="instagram"></a>
-                    <a href="#" class="sns-type facebook"><img class="sns-image" src="/assets/img/main/facebook.png"
-                                                               alt="facebook"></a>
-                    <a href="#" class="sns-type twitter"><img class="sns-image" src="/assets/img/main/twitter.png"
-                                                              alt="twitter"></a>
-                    <div class="sns-type chatting-icon"><img class="sns-image" src="/assets/img/main/chatting-icon.png"
-                                                             alt="chatting"></div>
-                </div>
-            </div>
-            <!--            프로필 카드 우측 -->
-            <div class="profile-right-side">
-                <div class="position-nickname">
-                    <img class="preferred-position" src="/assets/img/main/MID.png" alt="포지션">
-                    <p class="user-nickname">jhlee0622</p>
-                    <img class="follow-status" src="/assets/img/main/following.png" alt="following">
-                </div>
-                <div class="rate-matching-point">
-                    <div class="rate-matching-point rate-point-box"><img class="rate-matching-point-image"
-                                                                         src="/assets/img/main/star.png" alt="rate">
-                        <p class="avg-rate">89.2</p></div>
-                    <div class="rate-matching-point matching-point-box"><img class="rate-matching-point-image"
-                                                                             src="/assets/img/main/coin.png" alt="coin">
-                        <p class="matching-point">500</p></div>
-                </div>
-                <div class="profile-comment"><p>여기에 자기소개를 적을거에요^^ 같이 게임해용~~~</p></div>
-                <div class="profile-most-champ">
-                    <ul class="champ-list">
-                        <li class="most-pic first-champ"><img src="/assets/img/main/Skarner_3.jpg" alt="first-champ">
-                        </li>
-                        <li class="most-pic second-champ"><img src="/assets/img/main/TahmKench_0.jpg"
-                                                               alt="second-champ"></li>
-                        <li class="most-pic third-champ"><img src="/assets/img/main/Ziggs_2.jpg" alt="third-champ"></li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-        <!--        프로필 카드 한 장 -->
-        <div class="duo-profile">
-            <img class="duo-tier" src="/assets/img/main/TFT_Regalia_Challenger.png" alt="tier">
-            <!--            프로필 카드 좌측 -->
-            <div class="profile-left-side">
-                <div class="profile-frame">
-                    <img class="profile-image" src="/assets/img/main/profile-image.jpg" alt="프로필 이미지">
-                </div>
-                <div class="profile-sns">
-                    <a href="#" class="sns-type instagram"><img class="sns-image" src="/assets/img/main/instagram.png"
-                                                                alt="instagram"></a>
-                    <a href="#" class="sns-type facebook"><img class="sns-image" src="/assets/img/main/facebook.png"
-                                                               alt="facebook"></a>
-                    <a href="#" class="sns-type twitter"><img class="sns-image" src="/assets/img/main/twitter.png"
-                                                              alt="twitter"></a>
-                    <div class="sns-type chatting-icon"><img class="sns-image" src="/assets/img/main/chatting-icon.png"
-                                                             alt="chatting"></div>
-                </div>
-            </div>
-            <!--            프로필 카드 우측 -->
-            <div class="profile-right-side">
-                <div class="position-nickname">
-                    <img class="preferred-position" src="/assets/img/main/MID.png" alt="포지션">
-                    <p class="user-nickname">jhlee0622</p>
-                    <img class="follow-status" src="/assets/img/main/following.png" alt="following">
-                </div>
-                <div class="rate-matching-point">
-                    <div class="rate-matching-point rate-point-box"><img class="rate-matching-point-image"
-                                                                         src="/assets/img/main/star.png" alt="rate">
-                        <p class="avg-rate">89.2</p></div>
-                    <div class="rate-matching-point matching-point-box"><img class="rate-matching-point-image"
-                                                                             src="/assets/img/main/coin.png" alt="coin">
-                        <p class="matching-point">500</p></div>
-                </div>
-                <div class="profile-comment"><p>여기에 자기소개를 적을거에요^^ 같이 게임해용~~~</p></div>
-                <div class="profile-most-champ">
-                    <ul class="champ-list">
-                        <li class="most-pic first-champ"><img src="/assets/img/main/Skarner_3.jpg" alt="first-champ">
-                        </li>
-                        <li class="most-pic second-champ"><img src="/assets/img/main/TahmKench_0.jpg"
-                                                               alt="second-champ"></li>
-                        <li class="most-pic third-champ"><img src="/assets/img/main/Ziggs_2.jpg" alt="third-champ"></li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-        <div class="duo-profile">
-            <img class="duo-tier" src="/assets/img/main/TFT_Regalia_Challenger.png" alt="tier">
-            <!--            프로필 카드 좌측 -->
-            <div class="profile-left-side">
-                <div class="profile-frame">
-                    <img class="profile-image" src="/assets/img/main/profile-image.jpg" alt="프로필 이미지">
-                </div>
-                <div class="profile-sns">
-                    <a href="#" class="sns-type instagram"><img class="sns-image" src="/assets/img/main/instagram.png"
-                                                                alt="instagram"></a>
-                    <a href="#" class="sns-type facebook"><img class="sns-image" src="/assets/img/main/facebook.png"
-                                                               alt="facebook"></a>
-                    <a href="#" class="sns-type twitter"><img class="sns-image" src="/assets/img/main/twitter.png"
-                                                              alt="twitter"></a>
-                    <div class="sns-type chatting-icon"><img class="sns-image" src="/assets/img/main/chatting-icon.png"
-                                                             alt="chatting"></div>
-                </div>
-            </div>
-            <!--            프로필 카드 우측 -->
-            <div class="profile-right-side">
-                <div class="position-nickname">
-                    <img class="preferred-position" src="/assets/img/main/MID.png" alt="포지션">
-                    <p class="user-nickname">jhlee0622</p>
-                    <img class="follow-status" src="/assets/img/main/not-following.png" alt="following">
-                </div>
-                <div class="rate-matching-point">
-                    <div class="rate-matching-point rate-point-box"><img class="rate-matching-point-image"
-                                                                         src="/assets/img/main/star.png" alt="rate">
-                        <p class="avg-rate">89.2</p></div>
-                    <div class="rate-matching-point matching-point-box"><img class="rate-matching-point-image"
-                                                                             src="/assets/img/main/coin.png" alt="coin">
-                        <p class="matching-point">500</p></div>
-                </div>
-                <div class="profile-comment"><p>여기에 자기소개를 적을거에요^^ 같이 게임해용~~~</p></div>
-                <div class="profile-most-champ">
-                    <ul class="champ-list">
-                        <li class="most-pic first-champ"><img src="/assets/img/main/Skarner_3.jpg" alt="first-champ">
-                        </li>
-                        <li class="most-pic second-champ"><img src="/assets/img/main/TahmKench_0.jpg"
-                                                               alt="second-champ"></li>
-                        <li class="most-pic third-champ"><img src="/assets/img/main/Ziggs_2.jpg" alt="third-champ"></li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-        <!--        프로필 카드 한 장 -->
-        <div class="duo-profile">
-            <img class="duo-tier" src="/assets/img/main/TFT_Regalia_Challenger.png" alt="tier">
-            <!--            프로필 카드 좌측 -->
-            <div class="profile-left-side">
-                <div class="profile-frame">
-                    <img class="profile-image" src="/assets/img/main/profile-image.jpg" alt="프로필 이미지">
-                </div>
-                <div class="profile-sns">
-                    <a href="#" class="sns-type instagram"><img class="sns-image" src="/assets/img/main/instagram.png"
-                                                                alt="instagram"></a>
-                    <a href="#" class="sns-type facebook"><img class="sns-image" src="/assets/img/main/facebook.png"
-                                                               alt="facebook"></a>
-                    <a href="#" class="sns-type twitter"><img class="sns-image" src="/assets/img/main/twitter.png"
-                                                              alt="twitter"></a>
-                    <div class="sns-type chatting-icon"><img class="sns-image" src="/assets/img/main/chatting-icon.png"
-                                                             alt="chatting"></div>
-                </div>
-            </div>
-            <!--            프로필 카드 우측 -->
-            <div class="profile-right-side">
-                <div class="position-nickname">
-                    <img class="preferred-position" src="/assets/img/main/MID.png" alt="포지션">
-                    <p class="user-nickname">jhlee0622</p>
-                    <img class="follow-status" src="/assets/img/main/following.png" alt="following">
-                </div>
-                <div class="rate-matching-point">
-                    <div class="rate-matching-point rate-point-box"><img class="rate-matching-point-image"
-                                                                         src="/assets/img/main/star.png" alt="rate">
-                        <p class="avg-rate">89.2</p></div>
-                    <div class="rate-matching-point matching-point-box"><img class="rate-matching-point-image"
-                                                                             src="/assets/img/main/coin.png" alt="coin">
-                        <p class="matching-point">500</p></div>
-                </div>
-                <div class="profile-comment"><p>여기에 자기소개를 적을거에요^^ 같이 게임해용~~~</p></div>
-                <div class="profile-most-champ">
-                    <ul class="champ-list">
-                        <li class="most-pic first-champ"><img src="/assets/img/main/Skarner_3.jpg" alt="first-champ">
-                        </li>
-                        <li class="most-pic second-champ"><img src="/assets/img/main/TahmKench_0.jpg"
-                                                               alt="second-champ"></li>
-                        <li class="most-pic third-champ"><img src="/assets/img/main/Ziggs_2.jpg" alt="third-champ"></li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-        <!--        프로필 카드 한 장 -->
-        <div class="duo-profile">
-            <img class="duo-tier" src="/assets/img/main/TFT_Regalia_Challenger.png" alt="tier">
-            <!--            프로필 카드 좌측 -->
-            <div class="profile-left-side">
-                <div class="profile-frame">
-                    <img class="profile-image" src="/assets/img/main/profile-image.jpg" alt="프로필 이미지">
-                </div>
-                <div class="profile-sns">
-                    <a href="#" class="sns-type instagram"><img class="sns-image" src="/assets/img/main/instagram.png"
-                                                                alt="instagram"></a>
-                    <a href="#" class="sns-type facebook"><img class="sns-image" src="/assets/img/main/facebook.png"
-                                                               alt="facebook"></a>
-                    <a href="#" class="sns-type twitter"><img class="sns-image" src="/assets/img/main/twitter.png"
-                                                              alt="twitter"></a>
-                    <div class="sns-type chatting-icon"><img class="sns-image" src="/assets/img/main/chatting-icon.png"
-                                                             alt="chatting"></div>
-                </div>
-            </div>
-            <!--            프로필 카드 우측 -->
-            <div class="profile-right-side">
-                <div class="position-nickname">
-                    <img class="preferred-position" src="/assets/img/main/MID.png" alt="포지션">
-                    <p class="user-nickname">jhlee0622</p>
-                    <img class="follow-status" src="/assets/img/main/following.png" alt="following">
-                </div>
-                <div class="rate-matching-point">
-                    <div class="rate-matching-point rate-point-box"><img class="rate-matching-point-image"
-                                                                         src="/assets/img/main/star.png" alt="rate">
-                        <p class="avg-rate">89.2</p></div>
-                    <div class="rate-matching-point matching-point-box"><img class="rate-matching-point-image"
-                                                                             src="/assets/img/main/coin.png" alt="coin">
-                        <p class="matching-point">500</p></div>
-                </div>
-                <div class="profile-comment"><p>여기에 자기소개를 적을거에요^^ 같이 게임해용~~~</p></div>
-                <div class="profile-most-champ">
-                    <ul class="champ-list">
-                        <li class="most-pic first-champ"><img src="/assets/img/main/Skarner_3.jpg" alt="first-champ">
-                        </li>
-                        <li class="most-pic second-champ"><img src="/assets/img/main/TahmKench_0.jpg"
-                                                               alt="second-champ"></li>
-                        <li class="most-pic third-champ"><img src="/assets/img/main/Ziggs_2.jpg" alt="third-champ"></li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-        <!--        프로필 카드 한 장 -->
-        <div class="duo-profile">
-            <img class="duo-tier" src="/assets/img/main/TFT_Regalia_Challenger.png" alt="tier">
-            <!--            프로필 카드 좌측 -->
-            <div class="profile-left-side">
-                <div class="profile-frame">
-                    <img class="profile-image" src="/assets/img/main/profile-image.jpg" alt="프로필 이미지">
-                </div>
-                <div class="profile-sns">
-                    <a href="#" class="sns-type instagram"><img class="sns-image" src="/assets/img/main/instagram.png"
-                                                                alt="instagram"></a>
-                    <a href="#" class="sns-type facebook"><img class="sns-image" src="/assets/img/main/facebook.png"
-                                                               alt="facebook"></a>
-                    <a href="#" class="sns-type twitter"><img class="sns-image" src="/assets/img/main/twitter.png"
-                                                              alt="twitter"></a>
-                    <div class="sns-type chatting-icon"><img class="sns-image" src="/assets/img/main/chatting-icon.png"
-                                                             alt="chatting"></div>
-                </div>
-            </div>
-            <!--            프로필 카드 우측 -->
-            <div class="profile-right-side">
-                <div class="position-nickname">
-                    <img class="preferred-position" src="/assets/img/main/MID.png" alt="포지션">
-                    <p class="user-nickname">jhlee0622</p>
-                    <img class="follow-status" src="/assets/img/main/not-following.png" alt="following">
-                </div>
-                <div class="rate-matching-point">
-                    <div class="rate-matching-point rate-point-box"><img class="rate-matching-point-image"
-                                                                         src="/assets/img/main/star.png" alt="rate">
-                        <p class="avg-rate">89.2</p></div>
-                    <div class="rate-matching-point matching-point-box"><img class="rate-matching-point-image"
-                                                                             src="/assets/img/main/coin.png" alt="coin">
-                        <p class="matching-point">500</p></div>
-                </div>
-                <div class="profile-comment"><p>여기에 자기소개를 적을거에요^^ 같이 게임해용~~~</p></div>
-                <div class="profile-most-champ">
-                    <ul class="champ-list">
-                        <li class="most-pic first-champ"><img src="/assets/img/main/Skarner_3.jpg" alt="first-champ">
-                        </li>
-                        <li class="most-pic second-champ"><img src="/assets/img/main/TahmKench_0.jpg"
-                                                               alt="second-champ"></li>
-                        <li class="most-pic third-champ"><img src="/assets/img/main/Ziggs_2.jpg" alt="third-champ"></li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-        <!--        프로필 카드 한 장 -->
-        <div class="duo-profile">
-            <img class="duo-tier" src="/assets/img/main/TFT_Regalia_Challenger.png" alt="tier">
-            <!--            프로필 카드 좌측 -->
-            <div class="profile-left-side">
-                <div class="profile-frame">
-                    <img class="profile-image" src="/assets/img/main/profile-image.jpg" alt="프로필 이미지">
-                </div>
-                <div class="profile-sns">
-                    <a href="#" class="sns-type instagram"><img class="sns-image" src="/assets/img/main/instagram.png"
-                                                                alt="instagram"></a>
-                    <a href="#" class="sns-type facebook"><img class="sns-image" src="/assets/img/main/facebook.png"
-                                                               alt="facebook"></a>
-                    <a href="#" class="sns-type twitter"><img class="sns-image" src="/assets/img/main/twitter.png"
-                                                              alt="twitter"></a>
-                    <div class="sns-type chatting-icon"><img class="sns-image" src="/assets/img/main/chatting-icon.png"
-                                                             alt="chatting"></div>
-                </div>
-            </div>
-            <!--            프로필 카드 우측 -->
-            <div class="profile-right-side">
-                <div class="position-nickname">
-                    <img class="preferred-position" src="/assets/img/main/MID.png" alt="포지션">
-                    <p class="user-nickname">jhlee0622</p>
-                    <img class="follow-status" src="/assets/img/main/not-following.png" alt="following">
-                </div>
-                <div class="rate-matching-point">
-                    <div class="rate-matching-point rate-point-box"><img class="rate-matching-point-image"
-                                                                         src="/assets/img/main/star.png" alt="rate">
-                        <p class="avg-rate">89.2</p></div>
-                    <div class="rate-matching-point matching-point-box"><img class="rate-matching-point-image"
-                                                                             src="/assets/img/main/coin.png" alt="coin">
-                        <p class="matching-point">500</p></div>
-                </div>
-                <div class="profile-comment"><p>여기에 자기소개를 적을거에요^^ 같이 게임해용~~~</p></div>
-                <div class="profile-most-champ">
-                    <ul class="champ-list">
-                        <li class="most-pic first-champ"><img src="/assets/img/main/Skarner_3.jpg" alt="first-champ">
-                        </li>
-                        <li class="most-pic second-champ"><img src="/assets/img/main/TahmKench_0.jpg"
-                                                               alt="second-champ"></li>
-                        <li class="most-pic third-champ"><img src="/assets/img/main/Ziggs_2.jpg" alt="third-champ"></li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-        <!--        프로필 카드 한 장 -->
-        <div class="duo-profile">
-            <img class="duo-tier" src="/assets/img/main/TFT_Regalia_Challenger.png" alt="tier">
-            <!--            프로필 카드 좌측 -->
-            <div class="profile-left-side">
-                <div class="profile-frame">
-                    <img class="profile-image" src="/assets/img/main/profile-image.jpg" alt="프로필 이미지">
-                </div>
-                <div class="profile-sns">
-                    <a href="#" class="sns-type instagram"><img class="sns-image" src="/assets/img/main/instagram.png"
-                                                                alt="instagram"></a>
-                    <a href="#" class="sns-type facebook"><img class="sns-image" src="/assets/img/main/facebook.png"
-                                                               alt="facebook"></a>
-                    <a href="#" class="sns-type twitter"><img class="sns-image" src="/assets/img/main/twitter.png"
-                                                              alt="twitter"></a>
-                    <div class="sns-type chatting-icon"><img class="sns-image" src="/assets/img/main/chatting-icon.png"
-                                                             alt="chatting"></div>
-                </div>
-            </div>
-            <!--            프로필 카드 우측 -->
-            <div class="profile-right-side">
-                <div class="position-nickname">
-                    <img class="preferred-position" src="/assets/img/main/MID.png" alt="포지션">
-                    <p class="user-nickname">jhlee0622</p>
-                    <img class="follow-status" src="/assets/img/main/following.png" alt="following">
-                </div>
-                <div class="rate-matching-point">
-                    <div class="rate-matching-point rate-point-box"><img class="rate-matching-point-image"
-                                                                         src="/assets/img/main/star.png" alt="rate">
-                        <p class="avg-rate">89.2</p></div>
-                    <div class="rate-matching-point matching-point-box"><img class="rate-matching-point-image"
-                                                                             src="/assets/img/main/coin.png" alt="coin">
-                        <p class="matching-point">500</p></div>
-                </div>
-                <div class="profile-comment"><p>여기에 자기소개를 적을거에요^^ 같이 게임해용~~~</p></div>
-                <div class="profile-most-champ">
-                    <ul class="champ-list">
-                        <li class="most-pic first-champ"><img src="/assets/img/main/Skarner_3.jpg" alt="first-champ">
-                        </li>
-                        <li class="most-pic second-champ"><img src="/assets/img/main/TahmKench_0.jpg"
-                                                               alt="second-champ"></li>
-                        <li class="most-pic third-champ"><img src="/assets/img/main/Ziggs_2.jpg" alt="third-champ"></li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-        <!--        프로필 카드 한 장 -->
-        <div class="duo-profile">
-            <img class="duo-tier" src="/assets/img/main/TFT_Regalia_Challenger.png" alt="tier">
-            <!--            프로필 카드 좌측 -->
-            <div class="profile-left-side">
-                <div class="profile-frame">
-                    <img class="profile-image" src="/assets/img/main/profile-image.jpg" alt="프로필 이미지">
-                </div>
-                <div class="profile-sns">
-                    <a href="#" class="sns-type instagram"><img class="sns-image" src="/assets/img/main/instagram.png"
-                                                                alt="instagram"></a>
-                    <a href="#" class="sns-type facebook"><img class="sns-image" src="/assets/img/main/facebook.png"
-                                                               alt="facebook"></a>
-                    <a href="#" class="sns-type twitter"><img class="sns-image" src="/assets/img/main/twitter.png"
-                                                              alt="twitter"></a>
-                    <div class="sns-type chatting-icon"><img class="sns-image" src="/assets/img/main/chatting-icon.png"
-                                                             alt="chatting"></div>
-                </div>
-            </div>
-            <!--            프로필 카드 우측 -->
-            <div class="profile-right-side">
-                <div class="position-nickname">
-                    <img class="preferred-position" src="/assets/img/main/MID.png" alt="포지션">
-                    <p class="user-nickname">jhlee0622</p>
-                    <img class="follow-status" src="/assets/img/main/following.png" alt="following">
-                </div>
-                <div class="rate-matching-point">
-                    <div class="rate-matching-point rate-point-box"><img class="rate-matching-point-image"
-                                                                         src="/assets/img/main/star.png" alt="rate">
-                        <p class="avg-rate">89.2</p></div>
-                    <div class="rate-matching-point matching-point-box"><img class="rate-matching-point-image"
-                                                                             src="/assets/img/main/coin.png" alt="coin">
-                        <p class="matching-point">500</p></div>
-                </div>
-                <div class="profile-comment"><p>여기에 자기소개를 적을거에요^^ 같이 게임해용~~~</p></div>
-                <div class="profile-most-champ">
-                    <ul class="champ-list">
-                        <li class="most-pic first-champ"><img src="/assets/img/main/Skarner_3.jpg" alt="first-champ">
-                        </li>
-                        <li class="most-pic second-champ"><img src="/assets/img/main/TahmKench_0.jpg"
-                                                               alt="second-champ"></li>
-                        <li class="most-pic third-champ"><img src="/assets/img/main/Ziggs_2.jpg" alt="third-champ"></li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-        <!--        프로필 카드 한 장 -->
-        <div class="duo-profile">
-            <img class="duo-tier" src="/assets/img/main/TFT_Regalia_Challenger.png" alt="tier">
-            <!--            프로필 카드 좌측 -->
-            <div class="profile-left-side">
-                <div class="profile-frame">
-                    <img class="profile-image" src="/assets/img/main/profile-image.jpg" alt="프로필 이미지">
-                </div>
-                <div class="profile-sns">
-                    <a href="#" class="sns-type instagram"><img class="sns-image" src="/assets/img/main/instagram.png"
-                                                                alt="instagram"></a>
-                    <a href="#" class="sns-type facebook"><img class="sns-image" src="/assets/img/main/facebook.png"
-                                                               alt="facebook"></a>
-                    <a href="#" class="sns-type twitter"><img class="sns-image" src="/assets/img/main/twitter.png"
-                                                              alt="twitter"></a>
-                    <div class="sns-type chatting-icon"><img class="sns-image" src="/assets/img/main/chatting-icon.png"
-                                                             alt="chatting"></div>
-                </div>
-            </div>
-            <!--            프로필 카드 우측 -->
-            <div class="profile-right-side">
-                <div class="position-nickname">
-                    <img class="preferred-position" src="/assets/img/main/MID.png" alt="포지션">
-                    <p class="user-nickname">jhlee0622</p>
-                    <img class="follow-status" src="/assets/img/main/following.png" alt="following">
-                </div>
-                <div class="rate-matching-point">
-                    <div class="rate-matching-point rate-point-box"><img class="rate-matching-point-image"
-                                                                         src="/assets/img/main/star.png" alt="rate">
-                        <p class="avg-rate">89.2</p></div>
-                    <div class="rate-matching-point matching-point-box"><img class="rate-matching-point-image"
-                                                                             src="/assets/img/main/coin.png" alt="coin">
-                        <p class="matching-point">500</p></div>
-                </div>
-                <div class="profile-comment"><p>여기에 자기소개를 적을거에요^^ 같이 게임해용~~~</p></div>
-                <div class="profile-most-champ">
-                    <ul class="champ-list">
-                        <li class="most-pic first-champ"><img src="/assets/img/main/Skarner_3.jpg" alt="first-champ">
-                        </li>
-                        <li class="most-pic second-champ"><img src="/assets/img/main/TahmKench_0.jpg"
-                                                               alt="second-champ"></li>
-                        <li class="most-pic third-champ"><img src="/assets/img/main/Ziggs_2.jpg" alt="third-champ"></li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-        <!--        프로필 카드 한 장 -->
-        <div class="duo-profile">
-            <img class="duo-tier" src="/assets/img/main/TFT_Regalia_Challenger.png" alt="tier">
-            <!--            프로필 카드 좌측 -->
-            <div class="profile-left-side">
-                <div class="profile-frame">
-                    <img class="profile-image" src="/assets/img/main/profile-image.jpg" alt="프로필 이미지">
-                </div>
-                <div class="profile-sns">
-                    <a href="#" class="sns-type instagram"><img class="sns-image" src="/assets/img/main/instagram.png"
-                                                                alt="instagram"></a>
-                    <a href="#" class="sns-type facebook"><img class="sns-image" src="/assets/img/main/facebook.png"
-                                                               alt="facebook"></a>
-                    <a href="#" class="sns-type twitter"><img class="sns-image" src="/assets/img/main/twitter.png"
-                                                              alt="twitter"></a>
-                    <div class="sns-type chatting-icon"><img class="sns-image" src="/assets/img/main/chatting-icon.png"
-                                                             alt="chatting"></div>
-                </div>
-            </div>
-            <!--            프로필 카드 우측 -->
-            <div class="profile-right-side">
-                <div class="position-nickname">
-                    <img class="preferred-position" src="/assets/img/main/MID.png" alt="포지션">
-                    <p class="user-nickname">jhlee0622</p>
-                    <img class="follow-status" src="/assets/img/main/following.png" alt="following">
-                </div>
-                <div class="rate-matching-point">
-                    <div class="rate-matching-point rate-point-box"><img class="rate-matching-point-image"
-                                                                         src="/assets/img/main/star.png" alt="rate">
-                        <p class="avg-rate">89.2</p></div>
-                    <div class="rate-matching-point matching-point-box"><img class="rate-matching-point-image"
-                                                                             src="/assets/img/main/coin.png" alt="coin">
-                        <p class="matching-point">500</p></div>
-                </div>
-                <div class="profile-comment"><p>여기에 자기소개를 적을거에요^^ 같이 게임해용~~~</p></div>
-                <div class="profile-most-champ">
-                    <ul class="champ-list">
-                        <li class="most-pic first-champ"><img src="/assets/img/main/Skarner_3.jpg" alt="first-champ">
-                        </li>
-                        <li class="most-pic second-champ"><img src="/assets/img/main/TahmKench_0.jpg"
-                                                               alt="second-champ"></li>
-                        <li class="most-pic third-champ"><img src="/assets/img/main/Ziggs_2.jpg" alt="third-champ"></li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-        <!--        프로필 카드 한 장 -->
-        <div class="duo-profile">
-            <img class="duo-tier" src="/assets/img/main/TFT_Regalia_Challenger.png" alt="tier">
-            <!--            프로필 카드 좌측 -->
-            <div class="profile-left-side">
-                <div class="profile-frame">
-                    <img class="profile-image" src="/assets/img/main/profile-image.jpg" alt="프로필 이미지">
-                </div>
-                <div class="profile-sns">
-                    <a href="#" class="sns-type instagram"><img class="sns-image" src="/assets/img/main/instagram.png"
-                                                                alt="instagram"></a>
-                    <a href="#" class="sns-type facebook"><img class="sns-image" src="/assets/img/main/facebook.png"
-                                                               alt="facebook"></a>
-                    <a href="#" class="sns-type twitter"><img class="sns-image" src="/assets/img/main/twitter.png"
-                                                              alt="twitter"></a>
-                    <div class="sns-type chatting-icon"><img class="sns-image" src="/assets/img/main/chatting-icon.png"
-                                                             alt="chatting"></div>
-                </div>
-            </div>
-            <!--            프로필 카드 우측 -->
-            <div class="profile-right-side">
-                <div class="position-nickname">
-                    <img class="preferred-position" src="/assets/img/main/MID.png" alt="포지션">
-                    <p class="user-nickname">jhlee0622</p>
-                    <img class="follow-status" src="/assets/img/main/following.png" alt="following">
-                </div>
-                <div class="rate-matching-point">
-                    <div class="rate-matching-point rate-point-box"><img class="rate-matching-point-image"
-                                                                         src="/assets/img/main/star.png" alt="rate">
-                        <p class="avg-rate">89.2</p></div>
-                    <div class="rate-matching-point matching-point-box"><img class="rate-matching-point-image"
-                                                                             src="/assets/img/main/coin.png" alt="coin">
-                        <p class="matching-point">500</p></div>
-                </div>
-                <div class="profile-comment"><p>여기에 자기소개를 적을거에요^^ 같이 게임해용~~~</p></div>
-                <div class="profile-most-champ">
-                    <ul class="champ-list">
-                        <li class="most-pic first-champ"><img src="/assets/img/main/Skarner_3.jpg" alt="first-champ">
-                        </li>
-                        <li class="most-pic second-champ"><img src="/assets/img/main/TahmKench_0.jpg"
-                                                               alt="second-champ"></li>
-                        <li class="most-pic third-champ"><img src="/assets/img/main/Ziggs_2.jpg" alt="third-champ"></li>
-                    </ul>
-                </div>
-            </div>
-        </div>
+        <!--        가장 바깥 div에 유저아이디 넣기 -->
+        <%--        <div id = "test5@test.com" class="duo-profile">--%>
+        <%--            <img class="duo-tier" src="/assets/img/main/TFT_Regalia_Challenger.png" alt="tier">--%>
+        <%--            <!--            프로필 카드 좌측 -->--%>
+        <%--             <div class="profile-left-side">--%>
+        <%--                <div class="profile-frame">--%>
+        <%--                    <img class="profile-image" src="/assets/img/main/profile-image.jpg" alt="프로필 이미지">--%>
+        <%--                </div>--%>
+        <%--                <div class="profile-sns">--%>
+        <%--                    <a href="#" class="sns-type instagram"><img class="sns-image" src="/assets/img/main/instagram.png"--%>
+        <%--                                                                alt="instagram"></a>--%>
+        <%--                    <a href="#" class="sns-type facebook"><img class="sns-image" src="/assets/img/main/facebook.png"--%>
+        <%--                                                               alt="facebook"></a>--%>
+        <%--                    <a href="#" class="sns-type twitter"><img class="sns-image" src="/assets/img/main/twitter.png"--%>
+        <%--                                                              alt="twitter"></a>--%>
+        <%--                    <div class="sns-type chatting-icon"><img class="sns-image" src="/assets/img/main/chatting-icon.png"--%>
+        <%--                                                             alt="chatting"></div>--%>
+        <%--                </div>--%>
+        <%--            </div>--%>
+        <%--            <!--            프로필 카드 우측 -->--%>
+        <%--            <div class="profile-right-side">--%>
+        <%--                <div class="position-nickname">--%>
+        <%--                    <img class="preferred-position" src="/assets/img/main/MID.png" alt="포지션">--%>
+        <%--                    <p class="user-nickname">jhlee0622</p>--%>
+        <%--                    <img class="follow-status" src="/assets/img/main/not-following.png" alt="following">--%>
+        <%--                </div>--%>
+        <%--                <div class="rate-matching-point">--%>
+        <%--                    <div class="rate-matching-point rate-point-box"><img class="rate-matching-point-image"--%>
+        <%--                                                                         src="/assets/img/main/star.png" alt="rate">--%>
+        <%--                        <p class="avg-rate">89.2</p></div>--%>
+        <%--                    <div class="rate-matching-point matching-point-box"><img class="rate-matching-point-image"--%>
+        <%--                                                                             src="/assets/img/main/coin.png" alt="coin">--%>
+        <%--                        <p class="matching-point">500</p></div>--%>
+        <%--                </div>--%>
+        <%--                <div class="profile-comment"><p>여기에 자기소개를 적을거에요^^ 같이 게임해용~~~</p></div>--%>
+        <%--                <div class="profile-most-champ">--%>
+        <%--                    <ul class="champ-list">--%>
+        <%--                        <li class="most-pic first-champ"><img src="/assets/img/main/Skarner_3.jpg" alt="first-champ">--%>
+        <%--                        </li>--%>
+        <%--                        <li class="most-pic second-champ"><img src="/assets/img/main/TahmKench_0.jpg"--%>
+        <%--                                                               alt="second-champ"></li>--%>
+        <%--                        <li class="most-pic third-champ"><img src="/assets/img/main/Ziggs_2.jpg" alt="third-champ"></li>--%>
+        <%--                    </ul>--%>
+        <%--                </div>--%>
+        <%--            </div>--%>
+        <%--        </div>--%>
+        <%--        <!--        아래부터는 지워도 되는 부분입니다 --------------------------------------------------------------------->--%>
+        <%--        <!--        프로필 카드 한 장 -->--%>
+        <%--        <!--        가장 바깥 div에 유저아이디 넣기 -->--%>
+        <%--        <div id = "test@test.com" class="duo-profile">--%>
+        <%--            <img class="duo-tier" src="/assets/img/main/TFT_Regalia_Challenger.png" alt="tier">--%>
+        <%--            <!--            프로필 카드 좌측 -->--%>
+        <%--            <div class="profile-left-side">--%>
+        <%--                <div class="profile-frame">--%>
+        <%--                    <img class="profile-image" src="/assets/img/main/profile-image.jpg" alt="프로필 이미지">--%>
+        <%--                </div>--%>
+        <%--                <div class="profile-sns">--%>
+        <%--                    <a href="#" class="sns-type instagram"><img class="sns-image" src="/assets/img/main/instagram.png"--%>
+        <%--                                                                alt="instagram"></a>--%>
+        <%--                    <a href="#" class="sns-type facebook"><img class="sns-image" src="/assets/img/main/facebook.png"--%>
+        <%--                                                               alt="facebook"></a>--%>
+        <%--                    <a href="#" class="sns-type twitter"><img class="sns-image" src="/assets/img/main/twitter.png"--%>
+        <%--                                                              alt="twitter"></a>--%>
+        <%--                    <div class="sns-type chatting-icon"><img class="sns-image" src="/assets/img/main/chatting-icon.png"--%>
+        <%--                                                             alt="chatting"></div>--%>
+        <%--                </div>--%>
+        <%--            </div>--%>
+        <%--            <!--            프로필 카드 우측 -->--%>
+        <%--            <div class="profile-right-side">--%>
+        <%--                <div class="position-nickname">--%>
+        <%--                    <img class="preferred-position" src="/assets/img/main/MID.png" alt="포지션">--%>
+        <%--                    <p class="user-nickname">jhlee0622</p>--%>
+        <%--                    <img class="follow-status" src="/assets/img/main/not-following.png" alt="following">--%>
+        <%--                </div>--%>
+        <%--                <div class="rate-matching-point">--%>
+        <%--                    <div class="rate-matching-point rate-point-box"><img class="rate-matching-point-image"--%>
+        <%--                                                                         src="/assets/img/main/star.png" alt="rate">--%>
+        <%--                        <p class="avg-rate">89.2</p></div>--%>
+        <%--                    <div class="rate-matching-point matching-point-box"><img class="rate-matching-point-image"--%>
+        <%--                                                                             src="/assets/img/main/coin.png" alt="coin">--%>
+        <%--                        <p class="matching-point">500</p></div>--%>
+        <%--                </div>--%>
+        <%--                <div class="profile-comment"><p>여기에 자기소개를 적을거에요^^ 같이 게임해용~~~</p></div>--%>
+        <%--                <div class="profile-most-champ">--%>
+        <%--                    <ul class="champ-list">--%>
+        <%--                        <li class="most-pic first-champ"><img src="/assets/img/main/Skarner_3.jpg" alt="first-champ">--%>
+        <%--                        </li>--%>
+        <%--                        <li class="most-pic second-champ"><img src="/assets/img/main/TahmKench_0.jpg"--%>
+        <%--                                                               alt="second-champ"></li>--%>
+        <%--                        <li class="most-pic third-champ"><img src="/assets/img/main/Ziggs_2.jpg" alt="third-champ"></li>--%>
+        <%--                    </ul>--%>
+        <%--                </div>--%>
+        <%--            </div>--%>
+        <%--        </div>--%>
         <!--  여기까지 지워도 되는 부분입니다 --------------------------------------------------------------------->
     </div>
 
-    <%--</div>--%>
+    <!--</div>-->
 
     <%@ include file="common/footer.jsp" %>
 </div>
-<script type="module" src="/assets/js/common/header.js"></script>
-<script src="http://localhost:3000/socket.io/socket.io.js"></script>
-<script src="/assets/js/chatting/main.js"></script>
+
+
 </body>
 </html>

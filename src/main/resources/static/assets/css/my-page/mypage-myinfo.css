@@ -1,0 +1,440 @@
+@import "../common/common.css";
+
+body::-webkit-scrollbar {
+    display: none;
+}
+
+header {
+    display: flex;
+}
+
+#main-wrapper {
+    /*border: 1px solid #fff;*/
+    height: 600px;
+    color: white;
+}
+
+/* 좌측 메뉴 영역 */
+#my-page-sidebar {
+    width: 20%;
+    font-size: 18px;
+    line-height: 2.2em;
+    border-right: 1px solid #FFFFFF;
+    /*border: 1px solid #fff;*/
+}
+
+#my-page-menu-list {
+    margin-top: 30px;
+}
+
+/* 각 페이지에서는 해당 페이지 메뉴에 fw700 default 먹이기 */
+.my-page-menu:hover {
+    font-weight: 700;
+    cursor: pointer;
+}
+
+#my-info-modify {
+    font-weight: 700;
+}
+
+/* 우측 콘텐츠 영역 */
+#my-page-content {
+    width: 80%;
+    /*border: 1px solid #fff;*/
+    position: relative;
+    border-left: 1px solid #FFFFFF;
+    height: 600px;
+}
+
+/* 우측영역 작은 wrapper */
+#myinfo-wrapper {
+    width: 90%;
+    margin: 0 auto;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+}
+
+#profile-box {
+    width: 20%;
+    margin-right: 80px;
+}
+
+.myinfo-title {
+    margin-bottom: 15px;
+}
+
+#profile-frame {
+    width: 100%;
+    overflow: hidden;
+    border: 1px solid #fff;
+    height: 220px;
+}
+#main-profile-image {
+    width: 200px;
+    cursor: pointer;
+}
+
+#add-profile {
+    margin-top: 10px;
+    text-align: center;
+    cursor: pointer;
+}
+
+/* 프로필사진 제외 영역 */
+#my-info-box {
+    width: 70%;
+}
+
+#my-user-info {
+    display: flex;
+    /*border: 1px solid #fff;*/
+}
+
+/* 박스 타이틀 */
+.myinfo-title {
+    font-size: 20px;
+    width: 100%;
+}
+
+/* 닉네임, 생년월일, 롤계정 인풋 영역 */
+.my-info{
+    /*border: 1px solid #fff;*/
+    width: 230px;
+    margin-right: 50px;
+    position: relative;
+    margin-bottom: 30px;
+}
+
+.my-info span {
+    display: block;
+    width: 100px;
+}
+
+.my-info-data {
+    display: flex;
+    align-items: center;
+    margin-bottom: 5px;
+}
+
+.my-registered-info {
+    color: #FFFFFF;
+    width: 150px;
+    height: 25px;
+    outline: none;
+    background: #111E30;
+    border-radius: 5px;
+    border: 1px solid #FFFFFF;
+}
+
+.my-registered-info:focus {
+    background: #6C7C93;
+}
+
+.my-registered-info::placeholder {
+    text-align: center;
+    color: rgba(208, 208, 208, 0.6);
+}
+
+/* sns 영역 */
+.sns-image {
+    width: 25px;
+    margin-right: 10px;
+}
+
+.my-info-btn {
+    position: relative;
+    bottom: 0;
+    right: 0;
+    border-radius: 5px;
+    border: 1px solid #FFFFFF;
+    padding: 5px 10px;
+    cursor: pointer;
+    height: fit-content;
+}
+
+#my-info-btn {
+    margin-right: 0;
+}
+
+#modify-btn {
+    color: #fff;
+}
+
+.my-info-btn:hover {
+    background: rgba(255, 255, 255, 0.1);
+}
+
+/* 내정보 readonly 영역 */
+#my-activity {
+    display: flex;
+    justify-content: space-between;
+}
+
+#my-duo-activity {
+    /*border: 1px solid #FFFFFF;*/
+    width: 48%;
+}
+
+#my-board-activity {
+    /*border: 1px solid #FFFFFF;*/
+    width: 48%;
+}
+
+#first-box {
+    margin-bottom: 20px;
+}
+
+/* 내 호감도 */
+#my-popularity{
+    display: flex;
+    background: #3F4A5B;
+    border-radius: 10px;
+    padding: 10px 0;
+}
+
+#follow-info-box {
+    width: 44%;
+    padding-right: 5px;
+    padding-left: 10px;
+}
+
+#other-info-box {
+    width: 56%;
+}
+
+.my-popularity-data {
+    padding: 10px;
+    display: flex;
+}
+
+.my-popularity-data > span {
+    display: block;
+    width: 120px;
+    font-weight: 700;
+    margin-right: 3px;
+}
+
+.my-other-data {
+    padding: 10px;
+    display: flex;
+    justify-content: right;
+    margin-right: 10px;
+}
+
+.my-other-data > span {
+    font-weight: 700;
+    margin-right: 5px;
+}
+
+.data {
+    display: block;
+    /*border: 1px solid #FFFFFF;*/
+    width: 50px;
+    text-align: right;
+}
+
+/* 듀오 활동 정보 */
+.my-duo-activity-title {
+    display: flex;
+    position: relative;
+}
+
+#duo-info-title {
+    width: 50%;
+}
+
+#open-duo-history {
+    /*border: 1px solid #FFFFFF;*/
+    width: 50%;
+    font-size: 13px;
+    position: absolute;
+    right: 0;
+    text-align: right;
+    bottom: 15px;
+    cursor: pointer;
+}
+
+#my-matching {
+    background: #3F4A5B;
+    border-radius: 10px;
+    padding: 20px;
+}
+
+#my-matching-head {
+    display: flex;
+    font-weight: 700;
+}
+
+.my-matching-data {
+    display: flex;
+    margin-top: 20px;
+}
+
+.my-matching-data span {
+    margin-right: 5px;
+}
+
+.col1 {
+    /*border: 1px solid #FFFFFF;*/
+    width: 50px;
+}
+.col2 {
+    /*border: 1px solid #FFFFFF;*/
+    width: 90px;
+    text-align: right;
+}
+.col3 {
+    /*border: 1px solid #FFFFFF;*/
+    width: 90px;
+    text-align: right;
+}
+.col4 {
+    /*border: 1px solid #FFFFFF;*/
+    width: 90px;
+    text-align: right;
+}
+
+/* WOULD U DUO 활동 이력 */
+#my-board-point-info {
+    background: #3F4A5B;
+    border-radius: 10px;
+    padding: 20px;
+}
+
+#my-board-history {
+    margin-bottom: 18px;
+}
+
+.activity-title {
+    font-weight: 700;
+    margin-bottom: 15px;
+}
+
+.my-board-data {
+    display: flex;
+    margin-bottom: 15px;
+    text-indent: 10px;
+}
+
+.my-board-data > p {
+    /*border: 1px solid #FFFFFF;*/
+    width: 130px;
+}
+
+.data-amount {
+    /*border: 1px solid #FFFFFF;*/
+    width: 70px;
+    text-align: right;
+}
+
+.point-amount {
+    /*border: 1px solid #FFFFFF;*/
+    width: 50px;
+    text-align: right;
+}
+
+.my-point-data {
+    display: flex;
+    margin-bottom: 15px;
+    text-indent: 10px;
+}
+
+.my-point-data > p {
+    /*border: 1px solid #FFFFFF;*/
+    width: 150px;
+}
+
+.my-point-data .data-amount {
+    /*border: 1px solid #FFFFFF;*/
+    width: 100px;
+}
+
+#current-point {
+    margin-top: 18px;
+    /*text-indent: 10px;*/
+    display: flex;
+    justify-content: space-between;
+    font-size: 20px;
+    font-weight: 700;
+}
+
+/* -------------------프로필 상세보기 모달--------------------- */
+#profile-modal-background {
+    width: 100vw;
+    position: absolute;
+    top: 0;
+    height: 100vh;
+    z-index: 3;
+    background: rgba(0, 0, 0, 0.5);
+    /*display: none;*/
+}
+
+#profile-modal {
+    display: flex;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 800px;
+    overflow: hidden;
+}
+
+.arrow {
+    /*background: #000;*/
+    width: 150px;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    justify-content: center;
+}
+
+#prev {
+    transform: rotate(180deg);
+    width: 100px;
+    opacity: 0.5;
+}
+
+#prev:hover {
+    opacity: 1;
+}
+
+#next {
+    width: 100px;
+    opacity: 0.5;
+}
+
+#next:hover {
+    opacity: 1;
+}
+
+#profile-details-frame {
+    position: relative;
+    width: 500px;
+    height: 650px;
+}
+
+#profile-detail {
+    width: 500px;
+}
+
+#cancel {
+    display: none;
+    width: 60px;
+    position: absolute;
+    top: 0;
+    right: 0;
+    cursor: pointer;
+    margin: 10px;
+    z-index: 2;
+}
+
+#cancel:hover {
+    display: block;
+}
+
+#profile-detail:hover + #cancel {
+    display: block;
+}

@@ -23,7 +23,7 @@ public class MatchV5DTO {
     @Builder
     public static class MatchMetaData {
 
-//        private String dataVersion;
+        //        private String dataVersion;
 //        private String matchId;
         private String[] participants;
 
@@ -44,7 +44,6 @@ public class MatchV5DTO {
         @AllArgsConstructor
         @EqualsAndHashCode
         @ToString
-        @Builder
         public static class ParticipantDTO {
 
             private int assists;
@@ -58,9 +57,9 @@ public class MatchV5DTO {
             private int item5;
             private int item6;
             private int kills;
-            private PerksDTO statPerks;
+            private PerksDTO perks;
             private String summonerName;
-            // 소환사 주문 정보 summoner.json에 있다.
+            // 소환사 주문 정보
             private int summoner1Id;
             private int summoner2Id;
             private boolean win;

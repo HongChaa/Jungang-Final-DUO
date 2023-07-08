@@ -24,9 +24,11 @@ body::-webkit-scrollbar {
 /* 검색창 */
 #searchBy-nickname {
     /*border: 1px solid #fff;*/
+    border-radius: 10px;
     width: 200px;
-    height: 30px;
+    height: 40px;
     font-size: 16px;
+    font-weight: 700;
     line-height: 30px;
     outline: none;
 }
@@ -197,6 +199,9 @@ body::-webkit-scrollbar {
     margin-left: 16px;
     margin-bottom: 20px;
 }
+.duo-profile:hover {
+    background: rgba(255, 255, 255, 0.2);
+}
 
 #profile-cards-wrapper .duo-profile:nth-child(4n + 1){
     margin-left: 0;
@@ -237,6 +242,11 @@ body::-webkit-scrollbar {
     width: 30px;
     margin-top: 12px;
     margin-right: 3px;
+}
+
+.sns-image.sns-image-with-null {
+    opacity: 0.5;
+    cursor: default;
 }
 
 .profile-right-side {
